@@ -9,6 +9,7 @@ const store = createStore(
   rootReducer,
   storeEnhancers(applyMiddleware(...middleware))
 );
+store.subscribe(() => console.log('State: ',store.getState()));
 
 export default store;
 

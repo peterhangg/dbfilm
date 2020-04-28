@@ -1,12 +1,22 @@
+import { GET_MOVIES, GET_MOVIES_SUCCESS, GET_MOVIES_ERROR } from '../constants/action-types';
+
 const initialState = {
-  movies: []
+  movies: [],
+  loading: false,
+  errors: false
 };
 
-const getMovies = (state = initialState, action) => {
+const movieReducer = (state = initialState, action) => {
   switch(action.type) {
+    case GET_MOVIES:
+      return { ...state, loading: true } 
+    case GET_MOVIES_SUCCESS: 
+      return { ...state, movies: action.payload, loading: false }
+    case GET_MOVIES_ERROR:
+      return { ...state, loading: false, hasError: true }
     default:
-      return state;
+      return state
   }
 };
 
-export default getMovies;
+export default movieReducer;

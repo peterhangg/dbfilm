@@ -1,10 +1,13 @@
 import React from 'react';
+import MovieList from './components/MovieList';
+
 import './App.scss';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <h1>HELLO WORLD!</h1>
+      <MovieList />
     </div>
   );
 }
