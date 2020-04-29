@@ -3,7 +3,7 @@ import { fetchMovies } from '../actions/getMovies';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import Movies from './Movies';
 
-const MovieList = (props) => {
+const MovieList = ({loading, errors, movies}) => {
   // const { movies, loading, errors } = useSelector(state => state.movieReducer);
   const dispatch = useDispatch();
 
@@ -12,9 +12,9 @@ const MovieList = (props) => {
   },[dispatch]);
   
   const renderMovies = () => {
-    if (props.loading) return <p>Loading movies...</p>
-    if (props.errors) return <p>Unable to display movies.</p>
-    if (props.movies.results) return props.movies.results.map((movie,index) => <Movies key={index} movie={movie} />);
+    if (loading) return <p>Loading movies...</p>
+    if (errors) return <p>Unable to display movies.</p>
+    if (movies.results) return movies.results.map((movie,index) => <Movies key={movie.id} movie={movie} />);
   }
 
   return (
@@ -25,15 +25,11 @@ const MovieList = (props) => {
   )
 }
 
-const mapStateToProps = state => {
-  console.log("HERE", state)
-  return {
+const mapStateToProps = state => ({
     movies: state.movieReducer.movies,
     loading: state.movieReducer.loading,
     error: state.movieReducer.error
-
-  }
-}
+});
 
 // export default connect(mapStateToProps)(MovieList);
 export default connect(mapStateToProps)(MovieList);

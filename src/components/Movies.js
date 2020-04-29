@@ -1,11 +1,16 @@
 import React from 'react'
 
-const Movies = (props) => {
+const Movies = ({movie}) => {
   return (
-    <div>
-      <h4>{props.movie.title}</h4>
-    </div>
+      <div>
+        <h4>{movie.title}</h4>
+        <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt="{props.movie.title}"/>
+        <p>
+          <img src="https://img.icons8.com/android/14/000000/star.png" alt="star"/>
+          {movie.vote_average}
+        </p>
+      </div>
   )
 }
 
-export default Movies
+export default Movies;
