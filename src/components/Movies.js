@@ -2,7 +2,7 @@ import React from 'react'
 
 const Movies = ({movie}) => {
   return (
-      <div>
+      <div className="swiper-slide">
         <h4>{movie.title}</h4>
         <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt="{props.movie.title}"/>
         <p>

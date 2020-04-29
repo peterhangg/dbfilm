@@ -3,9 +3,29 @@ import { fetchMovies } from '../actions/getMovies';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import Movies from './Movies';
 
+import Swiper from 'swiper'
+import 'swiper/css/swiper.min.css'
+
 const MovieList = ({loading, errors, movies}) => {
   // const { movies, loading, errors } = useSelector(state => state.movieReducer);
   const dispatch = useDispatch();
+
+  const swiper = new Swiper('.swiper-container', {
+    init: true,
+    slidesPerView: 10,
+    loop: true,
+    spaceBetween: 10,
+    observer: true,
+  
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+});
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -18,9 +38,13 @@ const MovieList = ({loading, errors, movies}) => {
   }
 
   return (
-    <div>
+    <div className="swiper-container">
       <h2>MovieList</h2>
-      {renderMovies()}
+      <div className="swiper-wrapper">
+        {renderMovies()}
+      </div>
+      <div className="swiper-button-prev"></div>
+      <div className="swiper-button-next"></div>
     </div>
   )
 }
@@ -31,5 +55,4 @@ const mapStateToProps = state => ({
     error: state.movieReducer.error
 });
 
-// export default connect(mapStateToProps)(MovieList);
 export default connect(mapStateToProps)(MovieList);
