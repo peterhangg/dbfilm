@@ -1,0 +1,18 @@
+.swiper-slide {
+  text-align: center;
+  transition: transform .3s;
+  opacity: 80%;
+
+  //swiper-slide_image
+  &_image {
+    border-radius: 5px;
+    height: 300px;
+    width: auto;
+  }
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    transition: transform .3s;
+  }
+}

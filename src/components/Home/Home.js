@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { fetchNowPlaying } from '../../actions/getMovies';
+import { fetchNowPlaying } from '../../actions/getNowPlaying';
 import { connect, useDispatch } from 'react-redux';
 import MovieList from '../MovieList/MovieList';
 import Swiper from 'swiper';
@@ -33,14 +33,14 @@ const Home = (props) => {
   
   return (
     <div className="home-container">
-      <MovieList label="Now Playing" movies={props.movies} error={props.error} loading={props.loading}/>
+      <MovieList label="Now Playing" movies={props.nowPlayingMovies} error={props.nowPlayingLoading} loading={props.nowPlayingError}/>
     </div>
   )
 }
 const mapStateToProps = state => ({
-  movies: state.movieReducer.movies,
-  loading: state.movieReducer.loading,
-  error: state.movieReducer.error
+  nowPlayingMovies: state.nowPlayingReducer.movies,
+  nowPlayingLoading: state.nowPlayingReducer.loading,
+  nowPlayingError: state.nowPlayingReducer.error
 });
 
 export default connect(mapStateToProps)(Home);

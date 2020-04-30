@@ -1,21 +1,4 @@
 .swiper-container {
-  height: 500px;
+  height: 480px;
   width: 90%;
-}
-
-.swiper-slide {
-  text-align: center;
-  transition: transform .3s;
-  opacity: 80%;
-
-  //swiper-slide_image
-  &_image {
-    border-radius: 5px;
-  }
-
-  &:hover {
-    opacity: 1;
-    transform: scale(1.1);
-    transition: transform .3s;
-  }
 }
