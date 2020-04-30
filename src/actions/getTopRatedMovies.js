@@ -1,4 +1,5 @@
 import { GET_TOP_RATED_MOVIES_SUCCESS, GET_TOP_RATED_MOVIES_ERROR } from '../constants/action-types';
+import axios from 'axios';
 
 export const getTopRatedMoviesSuccess = data => ({
   type: GET_TOP_RATED_MOVIES_SUCCESS,
