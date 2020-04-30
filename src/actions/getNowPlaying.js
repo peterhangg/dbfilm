@@ -16,10 +16,10 @@ export const fetchNowPlaying = () => {
       const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`);
       const data = await response.data;
     
-      dispatch(getNowPlayingSuccess(data))
+      dispatch(getNowPlayingSuccess(data));
     } catch (error) {
-      dispatch(getNowPlayingError())
+      dispatch(getNowPlayingError());
     }
   }
-} 
+};
 

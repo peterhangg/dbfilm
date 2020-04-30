@@ -1,11 +1,13 @@
 import React, {useEffect} from 'react'
-import { fetchNowPlaying } from '../../actions/getNowPlaying';
 import { connect, useDispatch } from 'react-redux';
-import MovieList from '../MovieList/MovieList';
-import Swiper from 'swiper';
-import { fetchConfig } from '../../actions/getConfig';
-import { fetchLatestMovies } from '../../actions/getPopularMovies';
 
+import MovieList from '../MovieList/MovieList';
+
+import { fetchConfig } from '../../actions/getConfig';
+import { fetchNowPlaying } from '../../actions/getNowPlaying';
+import { fetchPopularMovies } from '../../actions/getPopularMovies';
+
+import Swiper from 'swiper';
 import 'swiper/css/swiper.min.css';
 
 
@@ -33,7 +35,7 @@ const Home = (props) => {
     console.log("USE EFFECT IN HOME COMPONENT");
     dispatch(fetchNowPlaying());
     dispatch(fetchConfig());
-    dispatch(fetchLatestMovies());
+    dispatch(fetchPopularMovies());
   },[dispatch]);
   
   return (

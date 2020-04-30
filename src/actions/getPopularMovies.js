@@ -10,15 +10,15 @@ export const getPopularMoviesError = () => ({
   type: GET_POPULAR_MOVIES_ERROR
 });
 
-export const fetchLatestMovies = () => {
+export const fetchPopularMovies = () => {
   return async dispatch => {
     try {
       const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`);
       const data = await response.data;
     
-      dispatch(getPopularMoviesSuccess(data))
+      dispatch(getPopularMoviesSuccess(data));
     } catch (error) {
-      dispatch(getPopularMoviesError())
+      dispatch(getPopularMoviesError());
     }
   }
-} 
+}; 
