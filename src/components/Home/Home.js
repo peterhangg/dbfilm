@@ -22,7 +22,44 @@ const Home = (props) => {
     loop: true,
     spaceBetween: 10,
     observer: true,
-
+    breakpoints: {
+      200: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      390: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      580: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      780: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      },
+      985: {
+        slidesPerView: 5,
+        spaceBetween: 40
+      },
+      1190: {
+        slidesPerView: 6,
+        spaceBetween: 40
+      },
+      1395: {
+        slidesPerView: 7,
+        spaceBetween: 40
+      },
+      1600: {
+        slidesPerView: 8,
+        spaceBetween: 40
+      },
+      1805: {
+        slidesPerView: 9,
+        spaceBetween: 40
+      }
+    },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
