@@ -3,7 +3,7 @@ import { GET_NOWPLAYING_SUCCESS, GET_NOWPLAYING_ERROR } from '../constants/actio
 const initialState = {
   movies: [],
   loading: true,
-  errors: false
+  error: false
 };
 
 const nowPlayingReducer = (state = initialState, action) => {
@@ -11,7 +11,7 @@ const nowPlayingReducer = (state = initialState, action) => {
     case GET_NOWPLAYING_SUCCESS: 
       return { ...state, movies: action.payload, loading: false }
     case GET_NOWPLAYING_ERROR:
-      return { ...state, loading: false, hasError: true }
+      return { ...state, loading: false, error: true }
     default:
       return state
   }
