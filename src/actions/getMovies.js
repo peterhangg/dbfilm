@@ -14,7 +14,7 @@ export const getMoviesError = () => ({
   type: GET_MOVIES_ERROR
 });
 
-export const fetchMovies = () => {
+export const fetchNowPlaying = () => {
   return async dispatch => {
     dispatch(getMovies());
 
