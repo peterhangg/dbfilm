@@ -41,7 +41,7 @@ const Home = (props) => {
   return (
     <div className="home-container">
       <MovieList label="Now Playing" movies={props.nowPlayingMovies} loading={props.nowPlayingError} error={props.nowPlayingLoading}/>
-      <MovieList label="Latest" movies={props.popularMovies} loading={props.popularLoading} error={props.popularMoviesError}/>
+      <MovieList label="Popular" movies={props.popularMovies} loading={props.popularLoading} error={props.popularMoviesError}/>
     </div>
   )
 }
