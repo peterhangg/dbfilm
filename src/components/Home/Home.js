@@ -3,6 +3,7 @@ import { fetchNowPlaying } from '../../actions/getNowPlaying';
 import { connect, useDispatch } from 'react-redux';
 import MovieList from '../MovieList/MovieList';
 import Swiper from 'swiper';
+import { fetchConfig } from '../../actions/getConfig';
 
 import 'swiper/css/swiper.min.css';
 
@@ -28,7 +29,9 @@ const Home = (props) => {
 });
 
   useEffect(() => {
+    console.log("USE EFFECT IN HOME COMPONENT");
     dispatch(fetchNowPlaying());
+    dispatch(fetchConfig());
   },[dispatch]);
   
   return (
