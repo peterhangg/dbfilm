@@ -1,7 +1,4 @@
-import {
-  GET_UPCOMING_MOVIES_SUCCESS,
-  GET_UPCOMING_MOVIES_ERROR,
-} from "../constants/action-types";
+import { GET_UPCOMING_MOVIES_SUCCESS, GET_UPCOMING_MOVIES_ERROR } from "../constants/action-types";
 import axios from "axios";
 
 export const getUpcomingMoviesSuccess = (data) => ({
