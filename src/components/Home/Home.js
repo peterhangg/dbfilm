@@ -39,7 +39,7 @@ const Home = (props) => {
     dispatch(fetchPopularMovies());
     dispatch(fetchTopRatedMovies());
   },[dispatch]);
-  
+
   return (
     <div className="home-container">
       <MovieList label="Now Playing" movies={props.nowPlayingMovies} loading={props.nowPlayingError} error={props.nowPlayingLoading}/>
