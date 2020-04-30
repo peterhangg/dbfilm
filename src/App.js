@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieList from './components/MovieList/MovieList';
+import Home from './components/Home/Home';
 
 import './App.scss';
 
@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>HELLO WORLD!</h1>
-      <MovieList />
+      <Home />
     </div>
   );
 }
