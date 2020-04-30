@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import nowPlayingReducer from './nowPlayingReducer';
 import configReducer from './configReducer';
+import nowPlayingReducer from './nowPlayingReducer';
+import latestMoviesReducer from './latestMoviesReducer';
 
 const rootReducer = combineReducers({
   nowPlayingReducer,
-  configReducer
+  configReducer,
+  latestMoviesReducer
 });
 
 export default rootReducer;
