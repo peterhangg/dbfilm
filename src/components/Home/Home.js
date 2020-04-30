@@ -6,7 +6,8 @@ import MovieList from '../MovieList/MovieList';
 import { fetchConfig } from '../../actions/getConfig';
 import { fetchNowPlaying } from '../../actions/getNowPlaying';
 import { fetchPopularMovies } from '../../actions/getPopularMovies';
-import { fetchTopRatedMovies} from '../../actions/getTopRatedMovies';
+import { fetchTopRatedMovies } from '../../actions/getTopRatedMovies';
+import { fetchUpcomingMovies } from '../../actions/getUpcomingMovies';
 
 import Swiper from 'swiper';
 import 'swiper/css/swiper.min.css';
@@ -38,6 +39,7 @@ const Home = (props) => {
     dispatch(fetchNowPlaying());
     dispatch(fetchPopularMovies());
     dispatch(fetchTopRatedMovies());
+    dispatch(fetchUpcomingMovies());
   },[dispatch]);
 
   return (
@@ -45,6 +47,7 @@ const Home = (props) => {
       <MovieList label="Now Playing" movies={props.nowPlayingMovies} loading={props.nowPlayingError} error={props.nowPlayingLoading}/>
       <MovieList label="Popular" movies={props.popularMovies} loading={props.popularLoading} error={props.popularMoviesError}/>
       <MovieList label="Top Rated" movies={props.topRatedMovies} loading={props.topRatedMoviesLoading} error={props.topRatedMoviesError}/>
+      <MovieList label="Upcoming" movies={props.upcomingMovies} loading={props.upcomingMoviesLoading} error={props.upcomingMoviesError}/>
     </div>
   )
 }
@@ -59,7 +62,11 @@ const mapStateToProps = state => ({
 
   topRatedMovies: state.topRatedMoviesReducer.movies,
   topRatedMoviesLoading: state.topRatedMoviesReducer.loading,
-  topRatedMoviesError: state.topRatedMoviesReducer.error
+  topRatedMoviesError: state.topRatedMoviesReducer.error,
+
+  upcomingMovies: state.upcomingMoviesReducer.movies,
+  upcomingMoviesLoading: state.upcomingMoviesReducer.loading,
+  upcomngMoviesError: state.upcomingMoviesReducer.error
 });
 
 export default connect(mapStateToProps)(Home);
