@@ -17,4 +17,4 @@ export const fetchConfig = () => {
       console.log(error)
     }
   }
-}
+};
