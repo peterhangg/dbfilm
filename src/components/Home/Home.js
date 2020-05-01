@@ -11,6 +11,7 @@ import { fetchUpcomingMovies } from '../../actions/getUpcomingMovies';
 
 import Swiper from 'swiper';
 import 'swiper/css/swiper.min.css';
+import './home.scss';
 
 
 const Home = (props) => {

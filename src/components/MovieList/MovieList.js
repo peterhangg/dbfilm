@@ -13,7 +13,7 @@ const MovieList = ({label, loading, errors, movies}) => {
 
   return (
     <div className="swiper-container">
-      <h2>{label}</h2>
+      <h2 className="swiper-container_label">{label}</h2>
       <div className="swiper-wrapper">
         {renderMovies()}
       </div>
