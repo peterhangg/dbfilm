@@ -11,9 +11,9 @@ const Header = ({movies, loading, error, config}) => {
     loop: true,
     spaceBetween: 0,
     observer: true,
-    // autoplay: {
-    //   delay: 2000
-    // },
+    autoplay: {
+      delay: 2000
+    },
     pagination: {
       el: '.swiper-pagination',
       type:'progressbar'
@@ -22,15 +22,15 @@ const Header = ({movies, loading, error, config}) => {
 
   if (loading) return <p>Loading movies...</p>
   if (error) return <p>Unable to display movies.</p>
-  // if (movies.results) return movies.results.map(movie => <h1>hello</h1> />);
-  const baseURL = `${config.images ? config.images.base_url : ''}${config.images ? config.images.backdrop_sizes[2] : ''}`
+
+  const baseBackdropURL = `${config.images ? config.images.base_url : ''}${config.images ? config.images.backdrop_sizes[3] : ''}`
 
   return (
     <div className="header-swiper-container">
       <div className="swiper-wrapper">
         {movies.results.map((movie, index) => (
           <div className="swiper-slide">
-            <img className="swiper-slide_header"src={`${baseURL}${movie.backdrop_path}`} alt={movie.title}/>
+            <img className="swiper-slide_header"src={`${baseBackdropURL}${movie.backdrop_path}`} alt={movie.title}/>
           </div>
         ))
       }

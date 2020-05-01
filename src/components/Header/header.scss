@@ -3,15 +3,11 @@
 .header-swiper-container {
   overflow: hidden;
   width: 100%;
-}
 
-// .swiper-wrapper {
-//   width: 100%;
-//   height: 100%;
-// }
-
-.swiper-slide {
-  &_header {
-    height: 95vh;
+  .swiper-slide {
+    &_header {
+      height: auto;
+      width: 100%;
+    }
   }
 }
