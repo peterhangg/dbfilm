@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const MovieItems = ({movie, config}) => {
   const imagePoster = `${config.images ? config.images.base_url : ''}${config.images ? config.images.poster_sizes[2] : ''}${movie.poster_path}`
-  
+
   return (
     <div className="swiper-slide">
       <h4 className="swiper-slide_title">{movie.title}</h4>

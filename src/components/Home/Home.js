@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import { connect, useDispatch } from 'react-redux';
 
 import MovieList from '../MovieList/MovieList';
+import Header from '../Header/Header';
 
 import { fetchConfig } from '../../actions/getConfig';
 import { fetchNowPlaying } from '../../actions/getNowPlaying';
@@ -64,10 +65,6 @@ const Home = (props) => {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
     }
 });
 
@@ -82,6 +79,7 @@ const Home = (props) => {
 
   return (
     <div className="home-container">
+      <Header movies={props.nowPlayingMovies} loading={props.nowPlayingError} error={props.nowPlayingLoading}/>
       <MovieList label="Now Playing" movies={props.nowPlayingMovies} loading={props.nowPlayingError} error={props.nowPlayingLoading}/>
       <MovieList label="Popular" movies={props.popularMovies} loading={props.popularLoading} error={props.popularMoviesError}/>
       <MovieList label="Top Rated" movies={props.topRatedMovies} loading={props.topRatedMoviesLoading} error={props.topRatedMoviesError}/>
