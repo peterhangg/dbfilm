@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react'
 import { connect, useDispatch } from 'react-redux';
 
-import MovieList from '../MovieList/MovieList';
-import Header from '../Header/Header';
+import MovieList from '../../components/MovieList/MovieList';
+import Header from '../../components/Header/Header';
+import Navbar from '../../components/Navbar/Navbar';
 
 import { fetchConfig } from '../../actions/getConfig';
 import { fetchNowPlaying } from '../../actions/getNowPlaying';
@@ -79,6 +80,7 @@ const Home = (props) => {
 
   return (
     <div className="home-container">
+      <Navbar />
       <Header movies={props.nowPlayingMovies} loading={props.nowPlayingError} error={props.nowPlayingLoading}/>
       <MovieList label="Now Playing" movies={props.nowPlayingMovies} loading={props.nowPlayingError} error={props.nowPlayingLoading}/>
       <MovieList label="Popular" movies={props.popularMovies} loading={props.popularLoading} error={props.popularMoviesError}/>

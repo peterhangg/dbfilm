@@ -3,11 +3,20 @@
 .header-swiper-container {
   overflow: hidden;
   width: 100%;
+  padding-top: 7vh;
+  height: 94vh;
 
   .swiper-slide {
     &_header {
       height: auto;
       width: 100%;
+      opacity: 30%;
     }
+  }
+  .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background-color: $tertiary-color;
+  }
+  .swiper-pagination {
+    margin-top:7vh;
   }
 }

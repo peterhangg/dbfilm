@@ -23,7 +23,7 @@ const Header = ({movies, loading, error, config}) => {
   if (loading) return <p>Loading movies...</p>
   if (error) return <p>Unable to display movies.</p>
 
-  const baseBackdropURL = `${config.images ? config.images.base_url : ''}${config.images ? config.images.backdrop_sizes[3] : ''}`
+  const baseBackdropURL = `${config.images ? config.images.base_url : ''}${config.images ? config.images.backdrop_sizes[2] : ''}`
 
   return (
     <div className="header-swiper-container">
