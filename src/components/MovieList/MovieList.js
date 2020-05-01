@@ -2,6 +2,8 @@ import React from 'react'
 import MovieItems from '../MovieItems/MovieItems';
 
 import './movieList.scss';
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const MovieList = ({label, loading, errors, movies}) => {
 
@@ -12,14 +14,16 @@ const MovieList = ({label, loading, errors, movies}) => {
   };
 
   return (
-    <div className="swiper-container">
-      <h2 className="swiper-container_label">{label}</h2>
-      <div className="swiper-wrapper">
-        {renderMovies()}
+    <ScrollAnimation animateIn="fadeIn" animateOnce={true} duration={2}>
+      <div className="swiper-container">
+        <h2 className="swiper-container_label">{label}</h2>
+        <div className="swiper-wrapper">
+          {renderMovies()}
+        </div>
+        <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next"></div>
       </div>
-      <div className="swiper-button-prev"></div>
-      <div className="swiper-button-next"></div>
-    </div>
+    </ScrollAnimation>
   )
 }
 
