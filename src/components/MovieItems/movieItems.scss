@@ -30,4 +30,8 @@
       transition: transform .3s;
     }
   }
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $secondary-color;
+  }
 }
