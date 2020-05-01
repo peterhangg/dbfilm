@@ -1,4 +1,10 @@
+@import '../../styles/variables';
+
 .swiper-container {
   height: 480px;
   width: 90%;
+
+  &_label {
+    color: $primary-font-color;
+  }
 }

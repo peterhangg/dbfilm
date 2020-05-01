@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+.header-swiper-container {
+  overflow: hidden;
+  width: 100%;
+
+  .swiper-slide {
+    &_header {
+      height: auto;
+      width: 100%;
+    }
+  }
+}
