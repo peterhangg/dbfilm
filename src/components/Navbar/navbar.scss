@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 7vh;
+  background-color: #1b242f;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
