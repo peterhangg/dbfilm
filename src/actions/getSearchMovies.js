@@ -13,7 +13,7 @@ export const getSearchMoviesError = () => ({
 export const fetchSearchMovies = (searchResult) => {
   return async dispatch => {
     try {
-      const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchResult}&page=1&include_adult=false`);
+      const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchResult}&include_adult=false`);
       const data = await response.data;
 
       dispatch(getSearchMoviesSuccess(data));

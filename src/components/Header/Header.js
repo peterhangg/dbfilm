@@ -8,7 +8,6 @@ const Header = ({movies, loading, error, config}) => {
   const swiper = new Swiper('.header-swiper-container', {
     init: true,
     slidesPerView: 1,
-    loop: true,
     spaceBetween: 0,
     observer: true,
     autoplay: {

@@ -25,7 +25,7 @@ const Navbar = () => {
     if (searchQuery) {
       dispatch(fetchSearchMovies(searchQuery));
     }
-  }, [searchQuery]);
+  }, [searchQuery, dispatch]);
 
   return (
     <nav className="navBar">
