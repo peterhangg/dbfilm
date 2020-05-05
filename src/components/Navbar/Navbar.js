@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { fetchSearchMovies } from '../../actions/getSearchMovies';
 
@@ -9,6 +10,7 @@ const Navbar = () => {
   const [search, setSearch] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const updateSearch = event => {
     setSearch(event.target.value);
@@ -18,6 +20,8 @@ const Navbar = () => {
   const getSearchResult = event => {
     event.preventDefault();
     setSearchQuery(search);
+    history.push(`/search-results/${search}`);
+    setSearch("");
   };
 
   useEffect(() => {
@@ -29,9 +33,9 @@ const Navbar = () => {
 
   return (
     <nav className="navBar">
-      <form className="main-nav-search-form" onSubmit={getSearchResult}>
-          <input className="search-input" value={search} onChange={updateSearch} type="text" placeholder="search..." required />
-            <button>Search</button>
+      <form className="main-nav-search-form" onSubmit={getSearchResult} action={`/search-results/${searchQuery}`}>
+        <input className="search-input" value={search} onChange={updateSearch} type="text" placeholder="search..." required />
+        <button type="submit">Search</button>
       </form>
     </nav>
   )

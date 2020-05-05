@@ -3,8 +3,6 @@ import { connect, useDispatch } from 'react-redux';
 
 import MovieList from '../../components/MovieList/MovieList';
 import Header from '../../components/Header/Header';
-import Navbar from '../../components/Navbar/Navbar';
-import Search from '../../components/Search/Search';
 
 import { fetchConfig } from '../../actions/getConfig';
 import { fetchNowPlaying } from '../../actions/getNowPlaying';
@@ -81,13 +79,11 @@ const Home = (props) => {
 
   return (
     <div className="home-container">
-      <Navbar />
       <Header movies={props.nowPlayingMovies} loading={props.nowPlayingError} error={props.nowPlayingLoading}/>
       <MovieList label="Now Playing" movies={props.nowPlayingMovies} loading={props.nowPlayingError} error={props.nowPlayingLoading}/>
       <MovieList label="Popular" movies={props.popularMovies} loading={props.popularLoading} error={props.popularMoviesError}/>
       <MovieList label="Top Rated" movies={props.topRatedMovies} loading={props.topRatedMoviesLoading} error={props.topRatedMoviesError}/>
       <MovieList label="Upcoming" movies={props.upcomingMovies} loading={props.upcomingMoviesLoading} error={props.upcomingMoviesError}/>
-      <Search />
     </div>
   )
 }
