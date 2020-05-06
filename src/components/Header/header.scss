@@ -4,7 +4,6 @@
   overflow: hidden;
   width: 100%;
   padding-top: 7vh;
-  height: 94vh;
 
   .swiper-slide {
     &_header {
@@ -18,5 +17,12 @@
   }
   .swiper-pagination {
     margin-top:7vh;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .header-swiper-container {
+    height: 94vh;
   }
 }

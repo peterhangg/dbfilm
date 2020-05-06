@@ -8,7 +8,6 @@ const Header = ({movies, loading, error, config}) => {
   const swiper = new Swiper('.header-swiper-container', {
     init: true,
     slidesPerView: 1,
-    loop: true,
     spaceBetween: 0,
     observer: true,
     autoplay: {
@@ -28,14 +27,14 @@ const Header = ({movies, loading, error, config}) => {
   return (
     <div className="header-swiper-container">
       <div className="swiper-wrapper">
-        {movies.results.map((movie, index) => (
-          <div className="swiper-slide">
+        {movies.results.map(movie => (
+          <div key={movie.id} className="swiper-slide">
             <img className="swiper-slide_header"src={`${baseBackdropURL}${movie.backdrop_path}`} alt={movie.title}/>
           </div>
         ))
       }
       </div>
-      <div class="swiper-pagination"></div>
+      <div className="swiper-pagination"></div>
     </div>
   )
 }
