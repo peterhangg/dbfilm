@@ -27,7 +27,8 @@ const Navbar = () => {
   useEffect(() => {
     console.log("SEARCHING MOVIE");
     if (searchQuery) {
-      dispatch(fetchSearchMovies(searchQuery));
+      // default fetch search movie data to page 1
+      dispatch(fetchSearchMovies(searchQuery, 1));
     }
   }, [searchQuery, dispatch]);
 
