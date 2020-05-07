@@ -1,9 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import './search.scss';
 
 const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, config}) => {
+  // This is to get your search parmas from route search-result/:id
+  const { searchInput } = useParams();
+
   const baseURL = `${config.images ? config.images.base_url : ''}${config.images ? config.images.poster_sizes[2] : ''}`
 
   if (searchMoviesLoading) return <p>Loading movies...</p>
@@ -11,7 +15,7 @@ const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, con
 
   return (
     <div className="search-movie-container">
-      <h2 className="search-movie-container_title">Search Results</h2>
+      <h2 className="search-movie-container_title">Search Results for: {searchInput}</h2>
       <div className="search-movie-wrapper">
         {searchResultMovies.results.length > 0 ? searchResultMovies.results.filter(movie => movie.poster_path).map(movie => (
         <div key={movie.id} className="search-movie">

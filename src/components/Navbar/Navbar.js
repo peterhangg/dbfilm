@@ -32,10 +32,10 @@ const Navbar = () => {
   }, [searchQuery, dispatch]);
 
   return (
-    <nav className="navBar">
-      <form className="main-nav-search-form" onSubmit={getSearchResult} action={`/search-results/${searchQuery}`}>
-        <input className="search-input" value={search} onChange={updateSearch} type="text" placeholder="search..." required />
-        <button type="submit">Search</button>
+    <nav className="navbar">
+      <form className="navbar_form" onSubmit={getSearchResult}>
+        <input className="navbar_search-input" value={search} onChange={updateSearch} type="text" placeholder="Search for a movie..." required />
+        <button className="navbar_search-button" type="submit">Search</button>
       </form>
     </nav>
   )

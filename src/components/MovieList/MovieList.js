@@ -10,7 +10,7 @@ const MovieList = ({label, loading, errors, movies}) => {
   const renderMovies = () => {
     if (loading) return <p>Loading movies...</p>
     if (errors) return <p>Unable to display movies.</p>
-    if (movies.results) return movies.results.map(movie => <MovieItems key={movie.id} movie={movie} />);
+    if (movies.results) return movies.results.filter(movie => movie.poster_path).map(movie => <MovieItems key={movie.id} movie={movie} />);
   };
 
   return (

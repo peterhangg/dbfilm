@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-nav {
+.navbar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,4 +10,32 @@ nav {
   top: 0;
   width: 100%;
   z-index: 1000;
+
+  &_form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 40%;
+    margin: 0 auto;
+  }
+
+  &_search-input {
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1.1em;
+    overflow: hidden;
+    flex: 2 250px;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &_search-button {
+    height: 40px;
+    padding: 10px 26px;
+    border-radius: 30px;
+    border: none;
+    flex: 1 0 90px;
+    font-size: 1.1em;
+  }
 }
