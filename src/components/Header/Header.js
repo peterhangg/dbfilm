@@ -27,7 +27,7 @@ const Header = ({movies, loading, error, config}) => {
   return (
     <div className="header-swiper-container">
       <div className="swiper-wrapper">
-        {movies.results.map(movie => (
+        {movies.results.filter(movie => movie.backdrop_path).map(movie => (
           <div key={movie.id} className="swiper-slide">
             <img className="swiper-slide_header"src={`${baseBackdropURL}${movie.backdrop_path}`} alt={movie.title}/>
           </div>

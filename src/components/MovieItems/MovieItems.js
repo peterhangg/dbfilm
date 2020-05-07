@@ -14,7 +14,7 @@ const MovieItems = ({movie, config}) => {
         alt={movie.title}
       />
       <p className="swiper-slide_score">
-        <img className="swiper-slide_score-icon" src="https://img.icons8.com/offices/14/000000/filled-star.png"alt="Movie Score"/>
+        <img className="swiper-slide_score-icon" src="https://img.icons8.com/offices/14/000000/filled-star.png" alt="Movie Score"/>
         {movie.vote_average}
       </p>
     </div>

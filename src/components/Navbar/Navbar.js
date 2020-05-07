@@ -27,15 +27,16 @@ const Navbar = () => {
   useEffect(() => {
     console.log("SEARCHING MOVIE");
     if (searchQuery) {
-      dispatch(fetchSearchMovies(searchQuery));
+      // default fetch search movie data to page 1
+      dispatch(fetchSearchMovies(searchQuery, 1));
     }
   }, [searchQuery, dispatch]);
 
   return (
-    <nav className="navBar">
-      <form className="main-nav-search-form" onSubmit={getSearchResult} action={`/search-results/${searchQuery}`}>
-        <input className="search-input" value={search} onChange={updateSearch} type="text" placeholder="search..." required />
-        <button type="submit">Search</button>
+    <nav className="navbar">
+      <form className="navbar_form" onSubmit={getSearchResult}>
+        <input className="navbar_search-input" value={search} onChange={updateSearch} type="text" placeholder="Search for a movie..." required />
+        <button className="navbar_search-button" type="submit">Search</button>
       </form>
     </nav>
   )

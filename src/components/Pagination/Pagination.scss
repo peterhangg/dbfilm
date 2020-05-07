@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+.pagination {
+  list-style: none;
+  color: white;
+  box-shadow: 0 10px 20px 0 rgba(black, 0.55);
+
+  &_page-item {
+    display: inline;
+    padding: 0px 4px;
+    cursor: pointer;
+    color: white;
+  }
+}
+
+.pagination a.active {
+  color: red;
+}
+
+.pagination a:hover:not(.active) {
+  color: blue;
+}

@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { fetchSearchMovies } from '../../actions/getSearchMovies';
+import { useDispatch } from 'react-redux';
+
+import Pagination from '../../components/Pagination/Pagination';
 
 import './search.scss';
 
-const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, config}) => {
+const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, config, totalPages}) => {
+  // This is to get your search parmas from route search-result/:id
+  const { searchInput } = useParams();
+  const dispatch = useDispatch();
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const baseURL = `${config.images ? config.images.base_url : ''}${config.images ? config.images.poster_sizes[2] : ''}`
+
+  useEffect(() => {
+    dispatch(fetchSearchMovies(searchInput, currentPage));
+  },[currentPage]);
 
   if (searchMoviesLoading) return <p>Loading movies...</p>
   if (searchMoviesError) return <p>Unable to display movies.</p>
 
   return (
     <div className="search-movie-container">
-      <h2 className="search-movie-container_title">Search Results</h2>
+      <h2 className="search-movie-container_title">Search Results for: {searchInput}</h2>
       <div className="search-movie-wrapper">
         {searchResultMovies.results.length > 0 ? searchResultMovies.results.filter(movie => movie.poster_path).map(movie => (
         <div key={movie.id} className="search-movie">
@@ -30,6 +45,7 @@ const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, con
         <p>Sorry no results found!</p>
         }
       </div>
+        <Pagination totalPages={totalPages} paginate={paginate} currentPage={currentPage}/>
     </div>
   )
 }
@@ -38,7 +54,9 @@ const mapStateToProps = state => ({
   searchResultMovies: state.searchMoviesReducer.movies,
   searchMoviesLoading: state.searchMoviesReducer.loading,
   searchMoviesError: state.searchMoviesReducer.error,
-  config: state.configReducer.config
+  config: state.configReducer.config,
+  totalPages: state.searchMoviesReducer.movies.total_pages,
+  totalResults: state.searchMoviesReducer.movies.total_results
 });
 
 export default connect(mapStateToProps)(Search);
