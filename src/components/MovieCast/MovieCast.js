@@ -5,43 +5,82 @@ import { fetchMovieCredits } from '../../actions/getMovieCredits';
 
 import './movieCast.scss';
 
-import Swiper from 'swiper';
+import Swiper from 'react-id-swiper';
+import 'swiper/swiper.scss'
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const MovieCast = ({cast, loading, error}) => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-const swiper = new Swiper('.swiper-container', {
-  init: true,
-  slidesPerView: 1,
-  spaceBetween: 0,
-  observer: true,
-  autoplay: {
-    delay: 2000
-  }
-});
+  const params = {
+    slidesPerView: 8,
+    paginationClickable: true,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    breakpoints: {
+      200: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      390: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      580: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      780: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      },
+      985: {
+        slidesPerView: 5,
+        spaceBetween: 40
+      },
+      1190: {
+        slidesPerView: 6,
+        spaceBetween: 40
+      },
+      1395: {
+        slidesPerView: 7,
+        spaceBetween: 40
+      },
+      1600: {
+        slidesPerView: 8,
+        spaceBetween: 40
+      },
+      1805: {
+        slidesPerView: 9,
+        spaceBetween: 40
+      }
+    }
+  };
 
   useEffect(() => {
     dispatch(fetchMovieCredits(id));
   }, [dispatch, id]);
 
   if (loading) return <p>LOADING CAST...</p>
-  if (error) return <p>UNABLE TO FIND CAST.</p>
+  if (error) return <p>ERROR WHEN LOOKING FOR MOVIE CAST :(</p>
 
   return (
-    <div className="swiper-container">
-      <h2 className="swiper-container_cast">Cast</h2>
-      <div className="swiper-wrapper">
-        {cast.map(actor => (
-          <div key={actor.cast_id} className="swiper-slide">
-            <img src={`https://image.tmdb.org/t/p/w185${actor.profile_path}`} alt={actor.name}/>
-            <p>{actor.name}</p>
-          </div>
-        ))}
-      </div>
-      <div className="swiper-button-prev"></div>
-      <div className="swiper-button-next"></div>
-    </div>
+    <ScrollAnimation animateIn="fadeIn" animateOnce={true} duration={2}>
+      <h2>Cast</h2>
+      <Swiper {...params}>
+          {cast.map(actor => (
+            <div key={actor.cast_id} className="swiper-slide">
+              <img className="swiper-slide_image"src={ actor.profile_path == null ? `http://via.placeholder.com/200x300` : `https://image.tmdb.org/t/p/w185${actor.profile_path}`} alt={actor.name}/>
+              <p>{actor.name}</p>
+            </div>
+          ))}
+      </Swiper>
+    </ScrollAnimation>
   )
 }
 

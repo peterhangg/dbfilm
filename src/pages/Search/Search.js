@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchSearchMovies } from '../../actions/getSearchMovies';
+import { Link } from 'react-router-dom';
 
 import Pagination from '../../components/Pagination/Pagination';
 
@@ -30,11 +31,13 @@ const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, con
         {searchResultMovies.results.length > 0 ? searchResultMovies.results.filter(movie => movie.poster_path).map(movie => (
         <div key={movie.id} className="search-movie">
           <h4 className="search-movie_title">{movie.title}</h4>
-          <img
-            className="search-movie_image"
-            src={movie.poster_path === null ? `http://via.placeholder.com/200x300` : `${baseURL}${movie.poster_path}`}
-            alt={movie.title}
-          />
+          <Link to={`/movie/${movie.id}`}>
+            <img
+              className="search-movie_image"
+              src={movie.poster_path === null ? `http://via.placeholder.com/200x300` : `${baseURL}${movie.poster_path}`}
+              alt={movie.title}
+            />
+          </Link>
           <p className="search-movie_score">
             <img className="search-movie_score-icon" src="https://img.icons8.com/offices/14/000000/filled-star.png"alt="Movie Score"/>
             {movie.vote_average}

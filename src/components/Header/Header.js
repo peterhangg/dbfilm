@@ -2,40 +2,27 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-// import Swiper from 'swiper';
 import './header.scss';
 
 import Swiper from 'react-id-swiper';
 import 'swiper/swiper.scss'
 
 const Header = ({movies, loading, error, config}) => {
-//   const swiper = new Swiper('.header-swiper-container', {
-//     init: true,
-//     slidesPerView: 1,
-//     spaceBetween: 0,
-//     observer: true,
-//     autoplay: {
-//       delay: 2000
-//     },
-//     pagination: {
-//       el: '.swiper-pagination',
-//       type:'progressbar'
-//     }
-// });
 
   const params = {
-    pagination: '.swiper-pagination',
-    paginationType: 'fraction',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar'
+    },
     slidesPerView: 1,
     paginationClickable: true,
     spaceBetween: 0,
     autoplay: {
-            delay: 2000
-          },
+      delay: 2000
+    },
     loop: true,
     containerClass: 'header-swiper-container'
   };
-
 
   if (loading) return <p>Loading movies...</p>
   if (error) return <p>Unable to display movies.</p>
@@ -52,7 +39,6 @@ const Header = ({movies, loading, error, config}) => {
         </div>
         ))
       }
-      <div className="swiper-pagination swiper-pagination-progress"></div>
     </Swiper>
   )
 }
