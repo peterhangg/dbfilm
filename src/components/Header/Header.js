@@ -2,23 +2,40 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import Swiper from 'swiper';
+// import Swiper from 'swiper';
 import './header.scss';
 
+import Swiper from 'react-id-swiper';
+import 'swiper/swiper.scss'
+
 const Header = ({movies, loading, error, config}) => {
-  const swiper = new Swiper('.header-swiper-container', {
-    init: true,
+//   const swiper = new Swiper('.header-swiper-container', {
+//     init: true,
+//     slidesPerView: 1,
+//     spaceBetween: 0,
+//     observer: true,
+//     autoplay: {
+//       delay: 2000
+//     },
+//     pagination: {
+//       el: '.swiper-pagination',
+//       type:'progressbar'
+//     }
+// });
+
+  const params = {
+    pagination: '.swiper-pagination',
+    paginationType: 'fraction',
     slidesPerView: 1,
+    paginationClickable: true,
     spaceBetween: 0,
-    observer: true,
     autoplay: {
-      delay: 2000
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type:'progressbar'
-    }
-});
+            delay: 2000
+          },
+    loop: true,
+    containerClass: 'header-swiper-container'
+  };
+
 
   if (loading) return <p>Loading movies...</p>
   if (error) return <p>Unable to display movies.</p>
@@ -26,19 +43,17 @@ const Header = ({movies, loading, error, config}) => {
   const baseBackdropURL = `${config.images ? config.images.base_url : ''}${config.images ? config.images.backdrop_sizes[2] : ''}`
 
   return (
-    <div className="header-swiper-container">
-      <div className="swiper-wrapper">
-        {movies.results.filter(movie => movie.backdrop_path).map(movie => (
-          <div key={movie.id} className="swiper-slide">
-            <Link to={`movie/${movie.id}`}>
-              <img className="swiper-slide_header"src={`${baseBackdropURL}${movie.backdrop_path}`} alt={movie.title}/>
-            </Link>
-          </div>
+    <Swiper {...params}>
+      {movies.results.filter(movie => movie.backdrop_path).map(movie => (
+        <div key={movie.id} className="swiper-slide">
+          <Link to={`movie/${movie.id}`}>
+            <img className="swiper-slide_header"src={`${baseBackdropURL}${movie.backdrop_path}`} alt={movie.title}/>
+          </Link>
+        </div>
         ))
       }
-      </div>
-      <div className="swiper-pagination"></div>
-    </div>
+      <div className="swiper-pagination swiper-pagination-progress"></div>
+    </Swiper>
   )
 }
 
