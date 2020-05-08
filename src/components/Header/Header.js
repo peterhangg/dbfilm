@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Swiper from 'swiper';
 import './header.scss';
@@ -29,7 +30,9 @@ const Header = ({movies, loading, error, config}) => {
       <div className="swiper-wrapper">
         {movies.results.filter(movie => movie.backdrop_path).map(movie => (
           <div key={movie.id} className="swiper-slide">
-            <img className="swiper-slide_header"src={`${baseBackdropURL}${movie.backdrop_path}`} alt={movie.title}/>
+            <Link to={`movie/${movie.id}`}>
+              <img className="swiper-slide_header"src={`${baseBackdropURL}${movie.backdrop_path}`} alt={movie.title}/>
+            </Link>
           </div>
         ))
       }
