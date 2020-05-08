@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchSearchMovies } from '../../actions/getSearchMovies';
-import { useDispatch } from 'react-redux';
 
 import Pagination from '../../components/Pagination/Pagination';
 
@@ -19,7 +18,7 @@ const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, con
 
   useEffect(() => {
     dispatch(fetchSearchMovies(searchInput, currentPage));
-  },[currentPage]);
+  },[currentPage, dispatch, searchInput]);
 
   if (searchMoviesLoading) return <p>Loading movies...</p>
   if (searchMoviesError) return <p>Unable to display movies.</p>
