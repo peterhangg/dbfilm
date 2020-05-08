@@ -1,6 +1,9 @@
 @import '../../styles/variables';
 
   .swiper-container {
+  height: auto;
+  padding-top: 20px;
+
   .swiper-slide {
     text-align: center;
     transition: transform .3s;
@@ -11,27 +14,10 @@
       border-radius: 5px;
       height: 250px;
     }
-    //swiper-slide_title
-    &_title {
-      color: $primary-font-color;
-    }
-    //swiper-slide_score
-    &_score {
-      color: $primary-font-color;
-    }
-    //swiper-slide_score-icon
-    &_score-icon {
-      padding-right: 3px;
-    }
-
     &:hover {
       opacity: 1;
       transform: scale(1.1);
       transition: transform .3s;
-    }
-
-    a:link, a:active, a:visited a:hover {
-      text-decoration: none;
     }
   }
   .swiper-button-prev,
