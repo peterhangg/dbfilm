@@ -4,7 +4,8 @@ import nowPlayingReducer from './nowPlayingReducer';
 import popularMoviesReducer from './popularMoviesReducer';
 import topRatedMoviesReducer from './topRatedMoviesReducer';
 import upcomingMoviesReducer from './upcomingMoviesReducer';
-import searchMoviesReducer from './searchMoviesReducer'
+import searchMoviesReducer from './searchMoviesReducer';
+import movieCreditsReducer from './movieCreditsReducer';
 
 const rootReducer = combineReducers({
   configReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   popularMoviesReducer,
   topRatedMoviesReducer,
   upcomingMoviesReducer,
-  searchMoviesReducer
+  searchMoviesReducer,
+  movieCreditsReducer
 });
 
 export default rootReducer;
