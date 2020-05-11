@@ -7,8 +7,6 @@ import './movieTrailer.scss';
 import Swiper from 'react-id-swiper';
 import 'swiper/swiper.scss'
 
-
-
 const MovieTrailer = ({trailers, loading, error}) => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -63,7 +61,7 @@ const MovieTrailer = ({trailers, loading, error}) => {
 const mapPropsToState = state => ({
   trailers: state.movieTrailerReducer.trailer.results,
   loading: state.movieTrailerReducer.loading,
-  error: state.movieTrailerReducer.error
+  error: state.movieTrailerReducer.error,
 });
 
 export default connect(mapPropsToState)(MovieTrailer);
