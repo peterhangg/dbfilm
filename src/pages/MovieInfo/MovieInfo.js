@@ -1,14 +1,17 @@
 import React from 'react'
 
 import MovieCast from '../../components/MovieCast/MovieCast';
+import MovieTrailer from '../../components/MovieTrailer/MovieTrailer';
+
 import './movieInfo.scss';
 
 const MovieInfo = () => {
 
   return (
-    <div>
-      <h1>HELLO FROM MOVIE INFO PAGE</h1>
+    <div className="movie-info-container">
+      <h1>WELCOME TO MOVIE INFO PAGE</h1>
       <MovieCast />
+      <MovieTrailer />
     </div>
   )
 }

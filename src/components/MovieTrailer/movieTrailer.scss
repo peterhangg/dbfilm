@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.trailer-swiper-container {
+  position: relative;
+  overflow: hidden;
+  margin: 0 3rem;
+
+  .swiper-wrapper {
+    margin: 0 auto;
+    .swiper-slide {
+      iframe {
+        border: none;
+        border-radius: 10px;
+      }
+    }
+  }
+}
