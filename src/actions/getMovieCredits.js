@@ -10,7 +10,7 @@ export const getMovieCreditsError = () => ({
   type: GET_MOVIE_CREDITS_ERROR
 });
 
-export const fetchMovieCredits= (id) => {
+export const fetchMovieCredits = (id) => {
   return async dispatch => {
     try {
       const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}`);
