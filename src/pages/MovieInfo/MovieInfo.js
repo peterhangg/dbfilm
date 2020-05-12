@@ -2,6 +2,7 @@ import React from 'react'
 
 import MovieCast from '../../components/MovieCast/MovieCast';
 import MovieTrailer from '../../components/MovieTrailer/MovieTrailer';
+import MovieDetails from '../../components/MovieDetails/MovieDetails';
 
 import './movieInfo.scss';
 
@@ -9,9 +10,11 @@ const MovieInfo = () => {
 
   return (
     <div className="movie-info-container">
-      <h1>WELCOME TO MOVIE INFO PAGE</h1>
-      <MovieCast />
-      <MovieTrailer />
+      <MovieDetails />
+      <div className="movie-info-container_credit">
+        <MovieCast />
+        <MovieTrailer />
+      </div>
     </div>
   )
 }
