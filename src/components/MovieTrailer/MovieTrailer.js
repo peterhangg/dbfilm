@@ -41,7 +41,7 @@ const MovieTrailer = ({trailers, loading, error}) => {
 
   return (
     <div className="movie-trailer-container">
-      <h1>HELLO FROM MOVIE TRAILER</h1>
+      <h1>TRAILER</h1>
       <Swiper {...params}>
         {trailers.map(trailer => (
           <div key={trailer.id}>

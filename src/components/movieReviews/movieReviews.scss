@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+.movie-reviews-container {
+  width: 80%;
+  margin: auto;
+  padding: 20px 0;
+
+  .movie-reviews-wrapper {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px lightgrey;
+    margin: 20px 0;
+
+    &_content {
+      text-align: left;
+    }
+    &_url {
+      color: #524d5b;
+    }
+    &_no-reviews {
+      font-size: 1.3em;
+      font-weight: 400;
+    }
+  }
+}

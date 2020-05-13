@@ -17,7 +17,7 @@ export const fetchMovieDetails = (id) => {
       const data = await response.data;
 
       dispatch(getMovieDetailsSuccess(data));
-    } catch (Error) {
+    } catch (error) {
       dispatch(getMovieDetailsError());
     }
   }
