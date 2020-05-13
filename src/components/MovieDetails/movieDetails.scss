@@ -7,7 +7,8 @@
   align-items: center;
   justify-content: center;
   height: 60vh;
-  width: 100%;
+  padding: 0 40px;
+  margin-top: 7vh;
 
   .movie-header-poster-wrapper {
     text-align: left;
@@ -19,6 +20,7 @@
   }
     .movie-header-info-wrapper {
       padding-left: 40px;
+      width: 50%;
     // .movie-header-info-wrapper_title
     &_title {
       text-align: left;
@@ -66,7 +68,7 @@
           margin: 0;
           font-weight: 700;
           padding-bottom: 2px;
-          font-size: 1.1em;
+          font-size: 1.2em;
         }
         // .movie-header-info-wrapper-details_crew-profile_job
         &_job {
