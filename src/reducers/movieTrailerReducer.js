@@ -1,7 +1,7 @@
 import { GET_MOVIE_TRAILER_SUCCESS, GET_MOVIE_TRAILER_ERROR } from '../constants/action-types';
 
 const initialState = {
-  trailer: {},
+  trailer: [],
   loading: true,
   error: false
 };

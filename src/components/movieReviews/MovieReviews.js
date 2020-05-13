@@ -28,7 +28,7 @@ const MovieReviews = ({ reviews, loading, error}) => {
           <h3 className="movie-reviews-wrapper_author">Review by {review.author}</h3>
           <p className="movie-reviews-wrapper_content">
             {shortenText(review.content)}
-            <a className="movie-reviews-wrapper_url" href={review.url} target="_blank">read the rest.</a>
+            <a className="movie-reviews-wrapper_url" href={review.url} target="_blank" rel="noopener noreferrer">read the rest.</a>
           </p>
         </div>
       )) :

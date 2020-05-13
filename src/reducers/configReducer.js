@@ -7,7 +7,7 @@ const initialState = {
 const configReducer = (state = initialState, action) => {
   switch(action.type) {
     case GET_CONFIG:
-      return {...state, config: action.payload}
+      return { ...state, config: action.payload }
     default:
       return state;
   }
