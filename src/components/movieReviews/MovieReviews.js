@@ -12,7 +12,7 @@ const MovieReviews = ({ reviews, loading, error}) => {
     dispatch(fetchMovieReviews(id));
   }, [dispatch, id]);
 
-  const shortenText = (string) => {
+  const shortenedSummary = (string) => {
     const textArr = string.split(" ");
     return textArr.length > 100 ? `${textArr.slice(0, 100).join(" ")}...` : textArr.join(" ");
   }
@@ -27,8 +27,8 @@ const MovieReviews = ({ reviews, loading, error}) => {
         <div className="movie-reviews-wrapper" key={review.id}>
           <h3 className="movie-reviews-wrapper_author">Review by {review.author}</h3>
           <p className="movie-reviews-wrapper_content">
-            {shortenText(review.content)}
-            <a className="movie-reviews-wrapper_url" href={review.url} target="_blank" rel="noopener noreferrer">read the rest.</a>
+            {shortenedSummary(review.content)}
+            {review.content.split(" ").length > 100 ? <a className="movie-reviews-wrapper_url" href={review.url} target="_blank" rel="noopener noreferrer">read the rest.</a> : "" }
           </p>
         </div>
       )) :

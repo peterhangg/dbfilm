@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+
+.movie-recommendations-container {
+  padding-top: 20px;
+  .swiper-slide {
+    &_title,
+    &_score {
+      color:black;
+    }
+  }
+};

@@ -16,7 +16,6 @@ const MovieTrailer = ({trailers, loading, error}) => {
   }, [dispatch, id]);
 
   const params = {
-    slidesPerView: 3,
     loop: true,
     navigation: {
       nextEl: '.swiper-button-next',
@@ -42,7 +41,7 @@ const MovieTrailer = ({trailers, loading, error}) => {
   return (
     <div className="movie-trailer-container">
       <h1>TRAILER</h1>
-      <Swiper {...params}>
+      <Swiper {...params} key={id}>
         {trailers.map(trailer => (
           <div key={trailer.id}>
             <iframe
