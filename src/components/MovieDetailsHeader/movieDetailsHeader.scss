@@ -1,12 +1,9 @@
 @import '../../styles/variables';
 
 .movie-header-container {
-  background-size: cover;
-  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60vh;
   padding: 0 40px;
   margin-top: 7vh;
 
@@ -76,5 +73,12 @@
         }
       }
     }
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .movie-header-container {
+    height: 60vh;
   }
 }

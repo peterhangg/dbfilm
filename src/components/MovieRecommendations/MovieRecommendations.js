@@ -20,23 +20,23 @@ const MovieRecommendations = ({ movieRecommendations, loading, error }) => {
       prevEl: ".swiper-button-prev"
     },
     breakpoints: {
-      525: {
+      485: {
         slidesPerView: 2,
       },
-      725: {
+      735: {
         slidesPerView: 3,
       },
-      925: {
+      975: {
         slidesPerView: 4,
       },
-      1025: {
+      1220: {
         slidesPerView: 5,
       },
-      1225: {
+      1465: {
         slidesPerView: 6,
       },
-      1375: {
-        slidesPerView: 7
+      1710: {
+        slidesPerView: 7,
       }
     }
   };
@@ -49,7 +49,7 @@ const MovieRecommendations = ({ movieRecommendations, loading, error }) => {
   if (error) return <p>ERROR WHEN FETCHING MOVIE RECOMMENDATIONS</p>
 
   return (
-    <div className="movie-recommendations-container">
+    <section className="movie-recommendations-container">
       <h1>RECOMMENDATIONS</h1>
       <Swiper {...params}>
         {movieRecommendations.map(recommendation => (
@@ -69,7 +69,7 @@ const MovieRecommendations = ({ movieRecommendations, loading, error }) => {
           </div>
         ))}
       </Swiper>
-    </div>
+    </section>
   )
 }
 

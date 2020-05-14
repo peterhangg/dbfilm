@@ -1,27 +1,29 @@
 @import '../../styles/variables';
-
+.movie-cast-container {
   .swiper-container {
-  height: auto;
-  padding-top: 20px;
+    height: auto;
+    width: 70%;
+    padding-top: 20px;
 
-  .swiper-slide {
-    text-align: center;
-    transition: transform .3s;
-    opacity: 80%;
-
-    //swiper-slide_image
-    &_image {
-      border-radius: 5px;
-      height: 250px;
-    }
-    &:hover {
-      opacity: 1;
-      transform: scale(1.1);
+    .swiper-slide {
+      text-align: center;
       transition: transform .3s;
+      opacity: 80%;
+
+      //swiper-slide_image
+      &_image {
+        border-radius: 5px;
+        height: 250px;
+      }
+      &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+        transition: transform .3s;
+      }
     }
-  }
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: $secondary-color;
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: $secondary-color;
+    }
   }
 }

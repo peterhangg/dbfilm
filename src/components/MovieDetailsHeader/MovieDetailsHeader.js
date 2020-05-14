@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieDetails } from '../../actions/getMovieDetails';
 import { fetchMovieCredits } from '../../actions/getMovieCredits';
 
-import './movieDetails.scss';
-
+import './movieDetailsHeader.scss';
 
 const MovieDetails = ({movieDetails, crew, loading, error}) => {
   const dispatch = useDispatch();
@@ -20,7 +19,7 @@ const MovieDetails = ({movieDetails, crew, loading, error}) => {
   if (error) return <p>ERROR WHEN LOOKING FOR MOVIE DETAILS :(</p>
 
   const headerStyle = {
-    background: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://image.tmdb.org/t/p/w1280${movieDetails.backdrop_path})`,
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(https://image.tmdb.org/t/p/w1280${movieDetails.backdrop_path})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
   }
