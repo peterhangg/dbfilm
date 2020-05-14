@@ -1,14 +1,18 @@
-@import '../../styles/variables';
-.movie-cast-container {
+@import "../../styles/variables";
+
+.movie-recommendations-container {
+  padding-top: 20px;
   .swiper-container {
-    height: auto;
     width: 70%;
-    padding-top: 20px;
 
     .swiper-slide {
       text-align: center;
       transition: transform .3s;
       opacity: 80%;
+      &_title,
+      &_score {
+        color:black;
+      }
 
       //swiper-slide_image
       &_image {
@@ -26,4 +30,4 @@
       color: $secondary-color;
     }
   }
-}
+};

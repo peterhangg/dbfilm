@@ -1,7 +1,7 @@
 import { GET_MOVIE_CREDITS_SUCCESS, GET_MOVIE_CREDITS_ERROR } from '../constants/action-types';
 
 const initialState = {
-  credit: {},
+  credit: [],
   loading: true,
   error: false
 };

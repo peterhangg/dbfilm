@@ -1,7 +1,7 @@
 import { GET_MOVIE_REVIEWS_SUCCESS, GET_MOVIE_REVIEWS_ERROR } from '../constants/action-types';
 
 const initialState = {
-  reviews: {},
+  reviews: [],
   loading: true,
   error: false
 };

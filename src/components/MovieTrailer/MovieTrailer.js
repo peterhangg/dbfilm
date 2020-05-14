@@ -16,24 +16,13 @@ const MovieTrailer = ({trailers, loading, error}) => {
   }, [dispatch, id]);
 
   const params = {
-    slidesPerView: 3,
+    slidesPerView: 1,
     loop: true,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
     },
     containerClass: 'trailer-swiper-container',
-    breakpoints: {
-      1435: {
-        slidesPerView: 3
-      },
-      990: {
-        slidesPerView: 2
-      },
-      200: {
-        slidesPerView: 1
-      }
-    },
   }
 
   if (loading) return <p>LOADING MOVIE TRAILERS...</p>
@@ -42,13 +31,13 @@ const MovieTrailer = ({trailers, loading, error}) => {
   return (
     <div className="movie-trailer-container">
       <h1>TRAILER</h1>
-      <Swiper {...params}>
+      <Swiper {...params} key={id}>
         {trailers.map(trailer => (
           <div key={trailer.id}>
             <iframe
               title={trailer.name}
               width="420"
-              height="315"
+              height="350"
               src={`https://www.youtube.com/embed/${trailer.key}`}>
             </iframe>
           </div>

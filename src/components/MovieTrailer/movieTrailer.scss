@@ -3,7 +3,7 @@
 .trailer-swiper-container {
   position: relative;
   overflow: hidden;
-  margin: 0 3rem;
+  margin: auto;
 
   .swiper-wrapper {
     margin: 0 auto;
@@ -12,6 +12,22 @@
         border: none;
         border-radius: 10px;
       }
+    }
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media all and (min-width: 1200px) {
+.trailer-swiper-container {
+    width: 35%;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .swiper-slide {
+    iframe {
+      height: 350px;
+      width: 275px;
     }
   }
 }

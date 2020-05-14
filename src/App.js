@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Search from './pages/Search/Search';
-import MovieInfo from './pages/MovieInfo/MovieInfo';
+import MovieDetails from './pages/MovieDetails/MovieDetails';
 
 import './App.scss';
 
@@ -16,7 +16,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/search-results/:searchInput" exact component={Search} />
-          <Route path="/movie/:id" exact component={MovieInfo} />
+          <Route path="/movie/:id" exact component={MovieDetails} />
         </Switch>
       </div>
     </Router>

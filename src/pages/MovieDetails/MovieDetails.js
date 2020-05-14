@@ -2,20 +2,22 @@ import React from 'react'
 
 import MovieCast from '../../components/MovieCast/MovieCast';
 import MovieTrailer from '../../components/MovieTrailer/MovieTrailer';
-import MovieDetails from '../../components/MovieDetails/MovieDetails';
+import MovieDetailsHeader from '../../components/MovieDetailsHeader/MovieDetailsHeader';
 import MovieReviews from '../../components/movieReviews/MovieReviews';
-import './movieInfo.scss';
+import MovieRecommendations from '../../components/MovieRecommendations/MovieRecommendations';
+
+
+import './movieDetails.scss';
 
 const MovieInfo = () => {
 
   return (
     <div className="movie-info-container">
-      <MovieDetails />
-      <div className="movie-info-container_credit">
-        <MovieCast />
-        <MovieTrailer />
-        <MovieReviews />
-      </div>
+      <MovieDetailsHeader />
+      <MovieCast />
+      <MovieTrailer />
+      <MovieReviews />
+      <MovieRecommendations />
     </div>
   )
 }

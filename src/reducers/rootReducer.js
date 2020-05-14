@@ -9,6 +9,7 @@ import movieCreditsReducer from './movieCreditsReducer';
 import movieTrailerReducer from './movieTrailerReducer';
 import movieDetailsReducer from './movieDetailsReducer';
 import movieReviewsReducer from './movieReviewsReducer';
+import movieRecommendationsReducer from './movieRecommendationsReducer';
 
 const rootReducer = combineReducers({
   configReducer,
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   movieCreditsReducer,
   movieTrailerReducer,
   movieDetailsReducer,
-  movieReviewsReducer
+  movieReviewsReducer,
+  movieRecommendationsReducer
 });
 
 export default rootReducer;
