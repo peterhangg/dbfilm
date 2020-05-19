@@ -29,10 +29,10 @@ const MovieTrailer = ({trailers, loading, error}) => {
   if (error) return <p>ERROR WHEN LOOKING FOR MOVIE TRAIELR :(</p>
 
   return (
-    <div className="movie-trailer-container">
+    <section className="movie-trailer-container">
       <h1>TRAILER</h1>
       <Swiper {...params} key={id}>
-        {trailers.map(trailer => (
+        {trailers.length > 0 ? trailers.map(trailer => (
           <div key={trailer.id}>
             <iframe
               title={trailer.name}
@@ -41,9 +41,11 @@ const MovieTrailer = ({trailers, loading, error}) => {
               src={`https://www.youtube.com/embed/${trailer.key}`}>
             </iframe>
           </div>
-        ))}
+        )):
+        <p className="swiper-slide_no-trailer">Currently Trailer Available.</p>
+      }
       </Swiper>
-    </div>
+    </section>
   )
 }
 

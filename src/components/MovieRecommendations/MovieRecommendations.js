@@ -51,7 +51,7 @@ const MovieRecommendations = ({ movieRecommendations, loading, error }) => {
   return (
     <section className="movie-recommendations-container">
       <h1>RECOMMENDATIONS</h1>
-      <Swiper {...params}>
+      <Swiper {...params} key={movieRecommendations.length}>
         {movieRecommendations.map(recommendation => (
           <div>
             <h4 className="swiper-slide_title">{recommendation.title}</h4>

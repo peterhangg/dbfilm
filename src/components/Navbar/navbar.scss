@@ -9,22 +9,30 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 50;
+
+  &_logo {
+    margin: 0 auto;
+    padding-left: 10px;
+    width: 50px;
+    cursor: pointer;
+  }
 
   &_form {
     display: flex;
     flex-wrap: wrap;
-    width: 40%;
     margin: 0 auto;
+    justify-content: center;
+    width: 50%;
   }
 
   &_search-input {
-    padding: 10px 20px;
+    padding: 8px 20px;
     border-radius: 30px;
     border: none;
     font-size: 1.1em;
     overflow: hidden;
-    flex: 2 250px;
+    width: 60%;
     &:focus {
       outline: none;
     }
@@ -32,10 +40,31 @@
 
   &_search-button {
     height: 40px;
-    padding: 10px 26px;
+    padding: 8px 20px;
     border-radius: 30px;
     border: none;
-    flex: 1 0 90px;
     font-size: 1.1em;
+    font-weight: 700;
+    margin-left: -40px;
+    color: $primary-font-color;
+    background: linear-gradient(225deg, $tertiary-color 0%, $secondary-color 100%);
+  }
+}
+
+@media only screen and (max-width: 485px) {
+  .navbar {
+    &_form {
+      width: 70%;
+    }
+    &_search-input {
+      font-size: 1em;
+    }
+    &_search-button {
+      font-size: 1em;
+      padding: 5px 15px;
+    }
+    &_logo {
+      width:35px;
+    }
   }
 }

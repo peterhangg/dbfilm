@@ -8,7 +8,7 @@ const initialState = {
 
 const nowPlayingReducer = (state = initialState, action) => {
   switch(action.type) {
-    case GET_NOWPLAYING_SUCCESS: 
+    case GET_NOWPLAYING_SUCCESS:
       return { ...state, movies: action.payload, loading: false }
     case GET_NOWPLAYING_ERROR:
       return { ...state, loading: false, error: true }

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import { fetchSearchMovies } from '../../actions/getSearchMovies';
 
 import "./navbar.scss";
+import Logo from '../../images/movie-icon.svg';
 
 const Navbar = () => {
   const [search, setSearch] = useState("");
@@ -34,6 +35,9 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
+      <Link className="navbar_icon" to={"/"}>
+        <img className="navbar_logo" src={Logo} alt="movie-icon"/>
+      </Link>
       <form className="navbar_form" onSubmit={getSearchResult}>
         <input className="navbar_search-input" value={search} onChange={updateSearch} type="text" placeholder="Search for a movie..." required />
         <button className="navbar_search-button" type="submit">Search</button>

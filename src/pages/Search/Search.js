@@ -18,6 +18,7 @@ const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, con
   const baseURL = `${config.images ? config.images.base_url : ''}${config.images ? config.images.poster_sizes[2] : ''}`
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(fetchSearchMovies(searchInput, currentPage));
   },[currentPage, dispatch, searchInput]);
 

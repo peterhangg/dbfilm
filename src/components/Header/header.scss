@@ -5,6 +5,26 @@
   width: 100%;
   padding-top: 7vh;
 
+  .header-content {
+    position: absolute;
+    bottom: 4em;
+    left: 4em;
+    color: $primary-font-color;
+    opacity: 75%;
+
+    // .header-content_title
+    &_title {
+      margin-bottom: 0;
+      padding-bottom: 10px;
+    }
+    // .header-content_score
+    &_score {
+      margin-top: 0;
+      font-size: 1.1em;
+      font-weight: 700;
+    }
+  }
+
   .swiper-slide {
     &_header {
       height: auto;
