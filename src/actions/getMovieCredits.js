@@ -1,7 +1,7 @@
 import { GET_MOVIE_CREDITS_SUCCESS, GET_MOVIE_CREDITS_ERROR } from '../constants/action-types';
 import axios from 'axios';
 
-const getMovieCreditsSuccess = data => ({
+export const getMovieCreditsSuccess = data => ({
   type: GET_MOVIE_CREDITS_SUCCESS,
   payload: data
 });
