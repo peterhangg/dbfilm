@@ -70,8 +70,11 @@ const Home = (props) => {
 
   useEffect(() => {
     console.log("USE EFFECT IN HOME COMPONENT");
+    // Added a small delay in fetch to display page loader
     dispatch(fetchConfig());
-    dispatch(fetchNowPlaying());
+    setTimeout(() => {
+      dispatch(fetchNowPlaying());
+    }, 250);
     dispatch(fetchPopularMovies());
     dispatch(fetchTopRatedMovies());
     dispatch(fetchUpcomingMovies());

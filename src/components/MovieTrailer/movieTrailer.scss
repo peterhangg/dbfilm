@@ -12,7 +12,15 @@
         border: none;
         border-radius: 10px;
       }
+      &_no-trailer {
+        font-size: 1.3em;
+        font-weight: 400;
+      }
     }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $secondary-color;
   }
 }
 
