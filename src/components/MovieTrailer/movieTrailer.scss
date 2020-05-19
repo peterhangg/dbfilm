@@ -1,28 +1,39 @@
 @import '../../styles/variables';
 
-.trailer-swiper-container {
-  position: relative;
-  overflow: hidden;
-  margin: auto;
+.movie-trailer-container {
 
-  .swiper-wrapper {
-    margin: 0 auto;
-    .swiper-slide {
-      iframe {
-        border: none;
-        border-radius: 10px;
-      }
-      &_no-trailer {
-        font-size: 1.3em;
-        font-weight: 400;
+  .trailer-swiper-container {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+  
+    .swiper-wrapper {
+      margin: 0 auto;
+      .swiper-slide {
+        iframe {
+          border: none;
+          border-radius: 10px;
+        }
       }
     }
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: $secondary-color;
+    }
   }
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: $secondary-color;
+
+  .no-movie-trailer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_text {
+      font-size: 1.2em;
+      font-weight:400;
+    }
   }
 }
+  
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media all and (min-width: 1200px) {

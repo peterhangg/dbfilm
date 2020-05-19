@@ -51,9 +51,9 @@ const MovieRecommendations = ({ movieRecommendations, loading, error }) => {
   return (
     <section className="movie-recommendations-container">
       <h1>RECOMMENDATIONS</h1>
-      <Swiper {...params} key={movieRecommendations.length}>
-        {movieRecommendations.map(recommendation => (
-          <div>
+      <Swiper {...params}>
+        {movieRecommendations.map((recommendation, index) => (
+          <div key={index}>
             <h4 className="swiper-slide_title">{recommendation.title}</h4>
             <Link to={`/movie/${recommendation.id}`}>
               <img

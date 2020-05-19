@@ -2,7 +2,9 @@ import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from '../../actions/getMovieReviews';
+
 import './movieReviews.scss';
+import noReviewsImage from '../../images/no-reviews.jpg'
 
 const MovieReviews = ({ reviews, loading, error}) => {
   const dispatch = useDispatch();
@@ -32,7 +34,16 @@ const MovieReviews = ({ reviews, loading, error}) => {
           </p>
         </div>
       )) :
-      <p className="movie-reviews-wrapper_no-reviews">Currently no reviews for this movie.</p>}
+      
+      <div className="no-movie-review-container">
+        <div className="no-movie-review-container_image-wrapper">
+          <img className="no-movie-review-container_image" src={noReviewsImage} alt="no reviews"></img>
+        </div>
+        <div className="no-movie-review-container_text-wrapper">
+        <p className="no-movie-review-container_text">Currently No Reviews Available.</p>
+        </div>
+      </div>
+    }
     </div>
   )
 };
