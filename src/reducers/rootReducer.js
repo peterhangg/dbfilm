@@ -11,6 +11,7 @@ import movieDetailsReducer from './movieDetailsReducer';
 import movieReviewsReducer from './movieReviewsReducer';
 import movieRecommendationsReducer from './movieRecommendationsReducer';
 import actorDetailsReducer from './actorDetailsReducer';
+import actorMovieCreditsReducer from './ActorMovieCreditsReducer';
 
 const rootReducer = combineReducers({
   configReducer,
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
   movieDetailsReducer,
   movieReviewsReducer,
   movieRecommendationsReducer,
-  actorDetailsReducer
+  actorDetailsReducer,
+  actorMovieCreditsReducer
 });
 
 export default rootReducer;
