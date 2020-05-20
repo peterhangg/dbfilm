@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieDetails } from '../../actions/getMovieDetails';
 import { fetchMovieCredits } from '../../actions/getMovieCredits';
 
+import filmPlaceholder from '../../images/film-placeholder.jpg';
 import './movieDetailsHeader.scss';
 
 const MovieDetails = ({movieDetails, crew, loading, error}) => {
@@ -32,7 +33,9 @@ const MovieDetails = ({movieDetails, crew, loading, error}) => {
   return (
     <div className="movie-header-container" style={headerStyle}>
       <div className="movie-header-poster-wrapper">
-        <img className="movie-header-poster-wrapper_image" src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`} alt={movieDetails.title}/>
+        <img className="movie-header-poster-wrapper_image" 
+          src={movieDetails.poster_path ? `https://image.tmdb.org/t/p/w300${movieDetails.poster_path}` : filmPlaceholder} alt={movieDetails.title}
+        />
       </div>
       <div className="movie-header-info-wrapper">
       <h2 className="movie-header-info-wrapper_title">{movieDetails.title} <span>({year})</span></h2>
@@ -66,7 +69,6 @@ const mapStateToProps = state => ({
   movieDetails: state.movieDetailsReducer.movieDetails,
   loading: state.movieDetailsReducer.loading,
   error: state.movieDetailsReducer.error,
-
   crew: state.movieCreditsReducer.credit.crew,
 });
 

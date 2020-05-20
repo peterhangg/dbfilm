@@ -54,13 +54,13 @@ const MovieRecommendations = ({ movieRecommendations, loading, error }) => {
       <Swiper {...params}>
         {movieRecommendations.map((recommendation, index) => (
           <div key={index}>
-            <h4 className="swiper-slide_title">{recommendation.title}</h4>
             <Link to={`/movie/${recommendation.id}`}>
               <img
                 className="swiper-slide_image"
                 src={recommendation.poster_path === null ? `http://via.placeholder.com/200x300` : `http://image.tmdb.org/t/p/w185${recommendation.poster_path}`}
                 alt={recommendation.title}
               />
+            <h4 className="swiper-slide_title">{recommendation.title}</h4>
             </Link>
             <p className="swiper-slide_score">
               <img className="swiper-slide_score-icon" src="https://img.icons8.com/offices/14/000000/filled-star.png" alt="Movie Score"/>

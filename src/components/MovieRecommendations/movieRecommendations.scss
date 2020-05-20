@@ -9,12 +9,13 @@
       text-align: center;
       transition: transform .3s;
       opacity: 80%;
-      &_title,
-      &_score {
-        color:black;
+      // swiper-slide_title, swiper-slide_score
+      &_title, &_score {
+        color: black;
+        margin: 5px 0;
+        font-weight: bold;
       }
-
-      //swiper-slide_image
+      // swiper-slide_image
       &_image {
         border-radius: 5px;
         height: 250px;

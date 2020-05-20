@@ -9,12 +9,12 @@ const MovieItems = ({movie, config}) => {
   return (
     <div  key={movie.id} className="swiper-slide">
       <Link to={`/movie/${movie.id}`}>
-        <h4 className="swiper-slide_title">{movie.title}</h4>
         <img
           className="swiper-slide_image"
           src={movie.poster_path === null ? `http://via.placeholder.com/200x300` : imagePoster}
           alt={movie.title}
         />
+        <h4 className="swiper-slide_title">{movie.title}</h4>
         <p className="swiper-slide_score">
           <img className="swiper-slide_score-icon" src="https://img.icons8.com/offices/14/000000/filled-star.png" alt="Movie Score"/>
           {movie.vote_average}
