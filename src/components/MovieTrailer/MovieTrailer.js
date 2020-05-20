@@ -27,8 +27,8 @@ const MovieTrailer = ({trailers, loading, error}) => {
     containerClass: 'trailer-swiper-container',
   }
 
-  if (loading) return <p>LOADING MOVIE TRAILERS...</p>
-  if (error) return <p>ERROR WHEN LOOKING FOR MOVIE TRAIELR :(</p>
+  if (loading) return <p>LOADING MOVIE TRAILER...</p>
+  if (error) return <p>ERROR WHEN LOOKING FOR MOVIE TRAILER :(</p>
 
   return (
     <section className="movie-trailer-container">

@@ -1,0 +1,30 @@
+@import '../../styles/variables';
+
+.actor-header-container {
+  padding-top: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .actor-header-image-wrapper {
+    margin-top: 3rem;
+    // .actor-header-image-wrapper_image
+    &_image {
+      width: 300px;
+      height: 450px;
+      border-radius: 10px;
+    }
+  }
+  .actor-header-detals-wrapper{
+    padding-left: 2rem;
+    text-align: left;
+    width: 50%;
+
+    &_label {
+      margin-bottom: 0;
+    }
+    &_gender, &_birthday, &_place-of-birth, &_known-for {
+      margin: 0;
+    }
+  }
+}

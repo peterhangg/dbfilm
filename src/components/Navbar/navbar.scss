@@ -48,6 +48,10 @@
     margin-left: -40px;
     color: $primary-font-color;
     background: linear-gradient(225deg, $tertiary-color 0%, $secondary-color 100%);
+    
+    &:hover {
+      background: linear-gradient(225deg, $secondary-color 0%, $tertiary-color 100%);
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchMovieCredits } from '../../actions/getMovieCredits';
 
 import './movieCast.scss';
@@ -56,7 +56,9 @@ const MovieCast = ({ cast, loading, error }) => {
         <Swiper {...params} key={cast.length}>
             {cast.map((actor, index) => (
               <div key={index} className="swiper-slide">
-                <img className="swiper-slide_image"src={ actor.profile_path == null ? `http://via.placeholder.com/200x300` : `https://image.tmdb.org/t/p/w185${actor.profile_path}`} alt={actor.name}/>
+                <Link to={`/movie/actor/${actor.id}`}>
+                  <img className="swiper-slide_image"src={ actor.profile_path == null ? `http://via.placeholder.com/200x300` : `https://image.tmdb.org/t/p/w185${actor.profile_path}`} alt={actor.name}/>
+                </Link>
                 <p>{actor.name}</p>
               </div>
             ))}
