@@ -32,7 +32,7 @@ const MovieTrailer = ({trailers, loading, error}) => {
 
   return (
     <section className="movie-trailer-container">
-      <h1>TRAILER</h1>
+      <h2>TRAILER</h2>
       {trailers.length > 0 ?
         <Swiper {...params} key={trailers.length}>
           {trailers.map((trailer, index) => (

@@ -11,13 +11,11 @@
       border-radius: 5px;
       height: 250px;
     }
-    //swiper-slide_title
-    &_title {
+    // swiper-slide_title, swiper-slide_score
+    &_title, &_score {
       color: $primary-font-color;
-    }
-    //swiper-slide_score
-    &_score {
-      color: $primary-font-color;
+      margin: 5px 0;
+      font-weight: bold;
     }
     //swiper-slide_score-icon
     &_score-icon {

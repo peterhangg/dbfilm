@@ -1,0 +1,20 @@
+@import '../../styles/variables';
+
+.actor-movie-credits-container {
+  padding: 20px 0;
+  .swiper-container {
+    width: 70%;
+
+    .swiper-slide {
+      text-align: center;
+      transition: transform .3s;
+      opacity: 80%;
+      // swiper-slide_title, swiper-slide_score
+      &_title, &_score {
+        color: black;
+        margin: 5px 0;
+        font-weight: bold;
+      }
+    }
+  }
+}
