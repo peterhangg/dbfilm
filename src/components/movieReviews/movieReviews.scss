@@ -19,8 +19,14 @@
     &_url {
       color: #524d5b;
     }
-    &_no-reviews {
-      font-size: 1.3em;
+  }
+  .no-movie-review-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_text {
+      font-size: 1.2em;
       font-weight: 400;
     }
   }

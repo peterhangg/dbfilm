@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Search from './pages/Search/Search';
 import MovieDetails from './pages/MovieDetails/MovieDetails';
+import ActorDetails from './pages/ActorDetails/ActorDetails';
 
 import './App.scss';
 
@@ -14,9 +15,10 @@ const App = () => {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/search-results/:searchInput" exact component={Search} />
-          <Route path="/movie/:id" exact component={MovieDetails} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/search-results/:searchInput" component={Search} />
+          <Route exact path="/movie/:id" component={MovieDetails} />
+          <Route exact path ="/movie/actor/:actorID" component={ActorDetails} />
         </Switch>
       </div>
     </Router>

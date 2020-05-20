@@ -7,6 +7,8 @@ import './movieTrailer.scss';
 import Swiper from 'react-id-swiper';
 import 'swiper/swiper.scss'
 
+import noTrailers from '../../images/no-trailers.jpg';
+
 const MovieTrailer = ({trailers, loading, error}) => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -25,26 +27,35 @@ const MovieTrailer = ({trailers, loading, error}) => {
     containerClass: 'trailer-swiper-container',
   }
 
-  if (loading) return <p>LOADING MOVIE TRAILERS...</p>
-  if (error) return <p>ERROR WHEN LOOKING FOR MOVIE TRAIELR :(</p>
+  if (loading) return <p>LOADING MOVIE TRAILER...</p>
+  if (error) return <p>ERROR WHEN LOOKING FOR MOVIE TRAILER :(</p>
 
   return (
     <section className="movie-trailer-container">
       <h1>TRAILER</h1>
-      <Swiper {...params} key={id}>
-        {trailers.length > 0 ? trailers.map(trailer => (
-          <div key={trailer.id}>
-            <iframe
-              title={trailer.name}
-              width="420"
-              height="350"
-              src={`https://www.youtube.com/embed/${trailer.key}`}>
-            </iframe>
+      {trailers.length > 0 ?
+        <Swiper {...params} key={trailers.length}>
+          {trailers.map((trailer, index) => (
+            <div key={index}>
+              <iframe
+                title={trailer.name}
+                width="420"
+                height="350"
+                src={`https://www.youtube.com/embed/${trailer.key}`}>
+              </iframe>
+            </div>
+          ))}
+        </Swiper>
+        :
+        <div className="no-movie-trailer-container">
+          <div className="no-movie-trailer-container_image-wrapper">
+            <img className="no-trailer-container_image" src={noTrailers} alt="notrailer"></img>
           </div>
-        )):
-        <p className="swiper-slide_no-trailer">Currently Trailer Available.</p>
+          <div className="no-movie-trailer-container_text-wrapper">
+            <p className="no-movie-trailer-container_text">Currently No Trailers Available.</p>
+          </div>
+        </div>
       }
-      </Swiper>
     </section>
   )
 }
