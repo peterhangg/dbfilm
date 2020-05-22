@@ -3,11 +3,13 @@ import './movieItems.scss';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import 'swiper/swiper.scss'
+
 const MovieItems = ({movie, config}) => {
   const imagePoster = `${config.images ? config.images.base_url : ''}${config.images ? config.images.poster_sizes[2] : ''}${movie.poster_path}`
 
   return (
-    <div  key={movie.id} className="swiper-slide">
+    <div key={movie.id} className="swiper-slide">
       <Link to={`/movie/${movie.id}`}>
         <img
           className="swiper-slide_image"
@@ -22,7 +24,7 @@ const MovieItems = ({movie, config}) => {
       </Link>
     </div>
   )
-}
+};
 
 const mapStateToProps = state => ({
   config: state.configReducer.config

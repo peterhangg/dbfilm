@@ -66,7 +66,7 @@ const MovieCast = ({ cast, loading, error }) => {
       </ScrollAnimation>
     </section>
   )
-}
+};
 
 const mapStateToProps = state => ({
   cast: state.movieCreditsReducer.credit.cast,

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { fetchActorMovieCredits } from '../../actions/getActorMovieCredits';
-import posterPlaceholder from '../../images/poster-placeholder.jpg';
 
 import Swiper from 'react-id-swiper';
 import 'swiper/swiper.scss'
@@ -10,6 +9,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import "animate.css/animate.min.css";
 
 import './actorMovieCredits.scss';
+import posterPlaceholder from '../../images/poster-placeholder.jpg';
 
 
 const ActorMovieCredits = ({ actorMovieCredits, loading, error }) => {

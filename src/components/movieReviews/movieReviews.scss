@@ -1,6 +1,9 @@
 @import '../../styles/variables';
 
 .movie-reviews-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
   width: 70%;
   margin: auto;
   padding: 20px 0;
@@ -10,7 +13,8 @@
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 2px 5px lightgrey;
-    margin: 20px 0;
+    margin-top: 20px;
+    margin-bottom: 5px;
 
     &_content {
       text-align: left;
@@ -28,6 +32,21 @@
     &_text {
       font-size: 1.2em;
       font-weight: 400;
+    }
+  }
+
+  .movie-review-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    
+    &_button {
+      border: none;
+      background: white;
+      color: #524d5b;
+      &:hover {
+        color: $tertiary-color;
+        text-decoration: underline;
+      }
     }
   }
 }
