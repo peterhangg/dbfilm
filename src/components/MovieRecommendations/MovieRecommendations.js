@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import { fetchMovieRecommendations } from '../../actions/getMovieRecommendations';
 
 import './movieRecommendations.scss';
+import posterPlaceholder from '../../images/poster-placeholder.jpg';
 
 import Swiper from 'react-id-swiper';
 import 'swiper/swiper.scss'
@@ -14,7 +15,6 @@ const MovieRecommendations = ({ movieRecommendations, loading, error }) => {
 
   const params = {
     slidesPerView: 1,
-    loop: true,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev"
@@ -51,13 +51,13 @@ const MovieRecommendations = ({ movieRecommendations, loading, error }) => {
   return (
     <section className="movie-recommendations-container">
       <h1>RECOMMENDATIONS</h1>
-      <Swiper {...params}>
+      <Swiper {...params} key={movieRecommendations.length}>
         {movieRecommendations.map((recommendation, index) => (
           <div key={index}>
             <Link to={`/movie/${recommendation.id}`}>
               <img
                 className="swiper-slide_image"
-                src={recommendation.poster_path === null ? `http://via.placeholder.com/200x300` : `http://image.tmdb.org/t/p/w185${recommendation.poster_path}`}
+                src={recommendation.poster_path === null ? posterPlaceholder : `http://image.tmdb.org/t/p/w185${recommendation.poster_path}`}
                 alt={recommendation.title}
               />
             <h4 className="swiper-slide_title">{recommendation.title}</h4>

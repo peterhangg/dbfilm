@@ -5,6 +5,7 @@ import { fetchSearchMovies } from '../../actions/getSearchMovies';
 import { Link } from 'react-router-dom';
 
 import Pagination from '../../components/Pagination/Pagination';
+import Footer from '../../components/Footer/Footer';
 
 import './search.scss';
 
@@ -49,6 +50,7 @@ const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, con
         }
       </div>
         <Pagination totalPages={totalPages} paginate={paginate} currentPage={currentPage}/>
+        <Footer />
     </div>
   )
 }
