@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors");
 const morgan = require("morgan");
 const colors = require("colors");
 const path = require("path");
@@ -7,12 +8,20 @@ const connectMongoDB = require("./config/db");
 
 const app = express();
 dotenv.config({ path: "./config/.env"});
+
+// Middleware
+app.use(cors());
 app.use(express.json());
 
+// Connect to MongoDB
 connectMongoDB();
 
+// Use Routes
+app.use("/api/users", require("./routes/users"));
+app.use("/api/auth", require("./routes/auth"));
+
 if (process.env.ENV === "development") {
-  // outputs response status and time
+  // logs response status and time
   app.use(morgan("dev"));
 };
 
