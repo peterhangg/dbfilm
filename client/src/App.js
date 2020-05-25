@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import store from './store';
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
@@ -7,9 +8,16 @@ import Search from './pages/Search/Search';
 import MovieDetails from './pages/MovieDetails/MovieDetails';
 import ActorDetails from './pages/ActorDetails/ActorDetails';
 
+import { loadUser } from './actions/authActions';
+
 import './App.scss';
 
 const App = () => {
+
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
   return (
     <Router>
       <div className="App">
