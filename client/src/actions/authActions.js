@@ -28,6 +28,35 @@ export const loadUser = () => {
   };
 };
 
+// Register User
+export const register = ({ name, email, password }) => {
+  return async dispatch => {
+    try {
+      // headers
+      const config = { 
+        headers: { "Content-type": "application/json" } 
+      };
+      // Request body
+      const body = JSON.stringify({ name, email, password });
+
+      const response = await axios.post("/api/users", body, config);
+      const data = await response.data;
+
+      dispatch({ type: CLEAR_ERRORS });
+      dispatch({ type: REGISTER_SUCCESS, payload: data });
+    
+    } catch (error) {
+      dispatch({ type: REGISTER_FAIL });
+      dispatch(returnErrors(error.response.data, error.response.status, 'REGISTER_FAIL'));
+    }
+  }
+};
+
+// Logout User
+export const logout = () => {
+  return { type: LOGOUT_SUCCESS };
+};
+
 //setup config/headers and token
 export const tokenConfig = (getState) => {
   // Get token from local storage:
