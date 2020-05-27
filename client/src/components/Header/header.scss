@@ -1,16 +1,17 @@
 @import '../../styles/variables';
 
 .header-swiper-container {
-  overflow: hidden;
+  height: 325px;
   width: 100%;
+  overflow: hidden;
   padding-top: 7vh;
   margin-bottom: 3rem;
 
   .header-content {
     position: absolute;
-    bottom: 4em;
-    left: 4em;
-    color: $primary-font-color;
+    bottom: 1em;
+    left: 1em;
+    color: $secondary-font-color;
     opacity: 75%;
 
     // .header-content_title
@@ -28,9 +29,9 @@
 
   .swiper-slide {
     &_header {
-      height: auto;
+      height: 400px;
       width: 100%;
-      opacity: 50%;
+      opacity: 9 0%;
     }
   }
   .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
@@ -41,9 +42,24 @@
   }
 }
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media all and (min-width: 600px) {
+  .header-swiper-container {
+    height: 50vh;
+    .header-content {
+      bottom: 2em;
+      left: 2em;
+    }
+  }
+}
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media all and (min-width: 1200px) {
   .header-swiper-container {
-    height: 94vh;
+    height: 93vh;
+    .header-content {
+      bottom: 3em;
+      left: 3em;
+    }
   }
 }

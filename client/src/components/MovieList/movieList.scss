@@ -5,6 +5,10 @@
     padding: 25px 5px;
     height: auto;
     width: 90%;
+    box-shadow: 0 12px 10px #777;
+    margin-bottom: 3rem;
+    border-radius: 5px;
+    background-color:$light-grey;
 
     &_label {
       color: $primary-font-color;

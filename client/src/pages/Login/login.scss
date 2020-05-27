@@ -46,11 +46,12 @@
           border-radius: 5px; 
         }
         &_button {
-          color: $primary-font-color;
+          color: $secondary-font-color;
           background: $tertiary-color;
           padding: 10px;
           border-radius: 5px;
           border: none;
+          outline: none;
           &:hover {
             color: $tertiary-color;
             background: white;

@@ -21,7 +21,7 @@
     // .movie-header-info-wrapper_title
     &_title {
       text-align: left;
-      color: $primary-font-color;
+      color: $secondary-font-color;
       font-size: 2em;
     }
     span {
@@ -29,11 +29,11 @@
       opacity: 90%;
     }
     .movie-header-info-wrapper-details {
-      color: $primary-font-color;
+      color: $secondary-font-color;
       text-align: left;
       // .movie-header-info-wrapper-details_tagline
       &_tagline {
-        color: $primary-font-color;
+        color: $secondary-font-color;
         font-weight: 400;
         opacity: 70%;
         font-style: italic;

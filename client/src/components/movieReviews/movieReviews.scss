@@ -13,8 +13,8 @@
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 2px 5px lightgrey;
-    margin-top: 20px;
     margin-bottom: 5px;
+    background-color: white;
 
     &_content {
       text-align: left;
@@ -22,6 +22,9 @@
     }
     &_url {
       color: #524d5b;
+      &:hover {
+        color: $tertiary-color;
+      }
     }
   }
   .no-movie-review-container {
