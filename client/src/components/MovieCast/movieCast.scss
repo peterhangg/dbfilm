@@ -4,8 +4,9 @@
   .swiper-container {
     height: auto;
     width: 70%;
-    padding-top: 20px;
-
+    padding: 20px 5px;
+    background-color: $light-grey;
+    // box-shadow: 0 12px 10px #777;
     .swiper-slide {
       text-align: center;
       transition: transform .3s;

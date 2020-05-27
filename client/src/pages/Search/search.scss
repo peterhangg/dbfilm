@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 
 .search-movie-container {
-  background-color: #162447;
+  background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('../../images/cinema-doodle.jpg');
   padding-top: 7vh;
   overflow: hidden;
   // search-movie-container_title
@@ -44,7 +44,6 @@
       padding-right: 3px;
     }
   }
-
 }
 
 @media only screen and (max-width: 400px) {

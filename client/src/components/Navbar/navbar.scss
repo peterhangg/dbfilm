@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   min-height: 7vh;
-  background-color: #1b242f;
+  background-color: $primary-color;
   position: fixed;
   top: 0;
   width: 100%;
@@ -46,7 +46,7 @@
     font-size: 1.1em;
     font-weight: 700;
     margin-left: -40px;
-    color: $primary-font-color;
+    color: $secondary-font-color;
     background: linear-gradient(225deg, $tertiary-color 0%, $secondary-color 100%);
     
     &:hover {
@@ -55,13 +55,14 @@
   }
 
   .nav-link {
-    color: $primary-font-color;
+    color: $secondary-font-color;
     border: none;
-    background: #1b242f;
+    background: $primary-color;
     font-weight: bold;
     letter-spacing: 2.5px;
     font-size: 1.05em;
     padding: 0 15px;
+    outline:none;
     &:hover {
       cursor: pointer;
       color: $tertiary-color;

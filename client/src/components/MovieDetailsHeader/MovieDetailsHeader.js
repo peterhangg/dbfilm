@@ -23,7 +23,7 @@ const MovieDetails = ({movieDetails, crew, loading, error}) => {
     backgroundImage: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(https://image.tmdb.org/t/p/w1280${movieDetails.backdrop_path})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
-  }
+  };
 
   const year = movieDetails.release_date.split("-")[0];
   const runtime = minute => {

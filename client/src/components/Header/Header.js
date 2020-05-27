@@ -31,17 +31,16 @@ const Header = ({ movies, loading, error, config }) => {
   return (
     <Swiper {...params}>
       {movies.results.filter(movie => movie.backdrop_path).map(movie => (
-        <div key={movie.id} className="swiper-slide">
-          <Link to={`movie/${movie.id}`}>
-            <img className="swiper-slide_header"src={`${baseBackdropURL}${movie.backdrop_path}`} alt={movie.title}/>
-          </Link>
-          <div className="header-content">
-            <h2 className="header-content_title">{movie.title}</h2>
-            <p className="header-content_score">
-              <img className="header-content_core-icon" src="https://img.icons8.com/offices/14/000000/filled-star.png" alt="Movie Score"/> {movie.vote_average}
-            </p>
+        <Link to={`movie/${movie.id}`}>  
+          <div key={movie.id} className="swiper-slide" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.60)), url(${baseBackdropURL}${movie.backdrop_path})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center center" }}>
+            <div className="header-content">
+              <h2 className="header-content_title">{movie.title}</h2>
+              <p className="header-content_score">
+                <img className="header-content_core-icon" src="https://img.icons8.com/offices/14/000000/filled-star.png" alt="Movie Score"/> {movie.vote_average}
+              </p>
+            </div>
           </div>
-        </div>
+        </Link>
         ))
       }
     </Swiper>
