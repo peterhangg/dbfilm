@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 
 import { fetchSearchMovies } from '../../actions/getSearchMovies';
+import { logout } from '../../actions/authActions';
 
 import "./navbar.scss";
 import Logo from '../../images/movie-icon.svg';
 
-const Navbar = () => {
+const Navbar = ({ isAuthenticated }) => {
   const [search, setSearch] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useDispatch();
@@ -23,6 +24,10 @@ const Navbar = () => {
     setSearchQuery(search);
     history.push(`/search-results/${search}`);
     setSearch("");
+  };
+
+  const handleLogout = (event) => {
+    dispatch(logout());
   };
 
   useEffect(() => {
@@ -42,8 +47,26 @@ const Navbar = () => {
         <input className="navbar_search-input" value={search} onChange={updateSearch} type="text" placeholder="Search for a movie..." required />
         <button className="navbar_search-button" type="submit">Search</button>
       </form>
+      <div>
+        {!isAuthenticated ? (
+        <>
+          <Link to={"/login"}>
+            <button className="nav-link">Login</button>
+          </Link>
+          <Link to={"/register"}>
+            <button className="nav-link">Register</button>
+          </Link>
+        </>
+        ) : (
+          <button className="nav-link" onClick={handleLogout}>logout</button>
+        )}
+      </div>
     </nav>
   )
-}
+};
 
-export default Navbar;
+const mapStateToProps = state => ({
+  isAuthenticated: state.authReducer.isAuthenticated
+});
+
+export default connect(mapStateToProps)(Navbar);

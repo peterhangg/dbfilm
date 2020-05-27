@@ -10,7 +10,7 @@ const auth = require("../middleware/auth");
 const User = require("../models/User");
 
 // @route   POST api/auth
-// @desc    Authenticate User
+// @desc    Authenticate User (login)
 // @access  Public
 router.post("/", async (req, res) => {
   const { email, password } = req.body;
@@ -22,14 +22,14 @@ router.post("/", async (req, res) => {
   
   try {
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ msg: "This User does not exist!"});
+    if (!user) return res.status(400).json({ msg: "This User does not exist!" });
 
     // Validate password
     const passwordCheck = await bcrypt.compare(password, user.password)
     if (!passwordCheck) throw Error("Invalid credentials!");
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 3600 });
-    if (!token) throw Error('Error occurred when signing the token');
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 3600 * 24 });
+    if (!token) throw Error("Error occurred when signing the token");
 
     res.status(200).json({
       token,

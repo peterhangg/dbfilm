@@ -1,0 +1,113 @@
+@import "../../styles/variables";
+
+.registration-container {
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 8rem;
+  .wave {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    z-index: -1;
+  }
+  .registration-background-image {
+    margin: auto;
+    img {
+      width: 500px;
+    }
+  }
+  .registration-form-wrapper {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    .registration-form {
+      width: 360px;
+      img {
+        height: 120px;
+      }
+      &_item {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        &_label {
+          align-self: flex-start;
+          font-weight: 700;
+        }
+        &_input {
+          padding: 0.8em;
+          font-size: 0.9em;
+          outline: none;
+          border: 1px solid #dddddd;
+          border-radius: 5px; 
+        }
+        &_button {
+          color: $primary-font-color;
+          background: $tertiary-color;
+          padding: 10px;
+          border-radius: 5px;
+          border: none;
+          &:hover {
+            color: $tertiary-color;
+            background: white;
+            border: 1px $tertiary-color solid;
+          }
+        }
+      }
+    }
+  }
+
+  .errorMessage {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    margin: auto;
+    border-radius: 5px;
+    // errorMessage_close-button
+    &_close-button {
+      font-size: 22px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1050px){
+	.registration-container {
+		grid-gap: 5rem;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	form {
+		width: 290px;
+	}
+
+	.registration-background-image img{
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 900px){
+	.registration-container {
+		grid-template-columns: 1fr;
+	}
+	.registration-background-image {
+		display: none;
+	}
+	.wave{
+		display: none;
+	}
+	.registration-form-wrapper {
+		justify-content: center;
+	}
+}
