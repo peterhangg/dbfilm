@@ -51,14 +51,14 @@ const Navbar = ({ isAuthenticated }) => {
         {!isAuthenticated ? (
         <>
           <Link to={"/login"}>
-            <button>Login</button>
+            <button className="nav-link">Login</button>
           </Link>
           <Link to={"/register"}>
-            <button>Register</button>
+            <button className="nav-link">Register</button>
           </Link>
         </>
         ) : (
-          <button onClick={handleLogout}>logout</button>
+          <button className="nav-link" onClick={handleLogout}>logout</button>
         )}
       </div>
     </nav>

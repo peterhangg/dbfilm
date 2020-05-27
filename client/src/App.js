@@ -8,6 +8,7 @@ import Search from './pages/Search/Search';
 import MovieDetails from './pages/MovieDetails/MovieDetails';
 import ActorDetails from './pages/ActorDetails/ActorDetails';
 import Registration from './pages/Registration/Registration';
+import Login  from './pages/Login/Login';
 
 import { loadUser } from './actions/authActions';
 
@@ -29,6 +30,7 @@ const App = () => {
           <Route exact path="/movie/:id" component={MovieDetails} />
           <Route exact path ="/movie/actor/:actorID" component={ActorDetails} />
           <Route exact path="/register" component={Registration} />
+          <Route exact path="/login" component={Login} />
         </Switch>
       </div>
     </Router>

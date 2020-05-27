@@ -53,6 +53,20 @@
       background: linear-gradient(225deg, $secondary-color 0%, $tertiary-color 100%);
     }
   }
+
+  .nav-link {
+    color: $primary-font-color;
+    border: none;
+    background: #1b242f;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    font-size: 1.05em;
+    padding: 0 15px;
+    &:hover {
+      cursor: pointer;
+      color: $tertiary-color;
+    }
+  }
 }
 
 @media only screen and (max-width: 485px) {

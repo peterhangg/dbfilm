@@ -14,19 +14,19 @@ router.post("/", async (req, res) => {
 
   // validation
   if (!name || !email || !password) {
-    return res.status(400).json({ msg: "Please fill out all fields" });
+    return res.status(400).json({ msg: "Please fill out all fields!" });
   };
-  
+
   try {
     const user = await User.findOne({ email });
     if (user) return res.status(400).json({ msg: "This User already exist!"});
 
     // Create Hash and Salt
     const salt = await bcrypt.genSalt(10);
-    if (!salt) throw Error('Error occurred with bcrypt');
+    if (!salt) throw Error("Error occurred with bcrypt");
     
     const hash = await bcrypt.hash(password, salt);
-    if (!hash) throw Error('Error occurred when hashing the password');
+    if (!hash) throw Error("Error occurred when hashing the password");
     
     const newUser = new User({
       name,
@@ -35,7 +35,7 @@ router.post("/", async (req, res) => {
     });
     
     const savedUser = await newUser.save();
-    if (!savedUser) throw Error('Something went wrong saving the user');
+    if (!savedUser) throw Error("Something went wrong saving the user");
     
     const token = jwt.sign({ id: savedUser.id }, process.env.JWT_SECRET, { expiresIn: 3600 });
     

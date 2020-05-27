@@ -1,6 +1,8 @@
 @import "../../styles/variables";
 
-.registration-container {
+@import "../../styles/variables";
+
+.login-container {
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 100);
   display: grid;
@@ -13,17 +15,17 @@
     height: 100%;
     z-index: -1;
   }
-  .registration-background-image {
+  .login-background-image {
     margin: auto;
     img {
       width: 500px;
     }
   }
-  .registration-form-wrapper {
+  .login-form-wrapper {
     display: flex;
     align-items: center;
     text-align: center;
-    .registration-form {
+    .login-form {
       width: 360px;
       img {
         height: 120px;
@@ -82,7 +84,7 @@
 }
 
 @media screen and (max-width: 1050px){
-	.registration-container {
+	.login-container {
 		grid-gap: 5rem;
 	}
 }
@@ -98,16 +100,16 @@
 }
 
 @media screen and (max-width: 900px){
-	.registration-container {
+	.login-container {
 		grid-template-columns: 1fr;
 	}
-	.registration-background-image {
+	.login-background-image {
 		display: none;
 	}
 	.wave{
 		display: none;
 	}
-	.registration-form-wrapper {
+	.login-form-wrapper {
 		justify-content: center;
 	}
 }
