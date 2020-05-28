@@ -14,6 +14,7 @@ import actorDetailsReducer from './actorDetailsReducer';
 import actorMovieCreditsReducer from './actorMovieCreditsReducer';
 import errorReducer from './errorReducer';
 import authReducer from './authReducer';
+import favouriteMovieReducer from './favouriteMovieReducer';
 
 const rootReducer = combineReducers({
   configReducer,
@@ -30,7 +31,8 @@ const rootReducer = combineReducers({
   actorDetailsReducer,
   actorMovieCreditsReducer,
   errorReducer,
-  authReducer
+  authReducer,
+  favouriteMovieReducer
 });
 
 export default rootReducer;

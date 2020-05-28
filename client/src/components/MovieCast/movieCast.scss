@@ -6,7 +6,8 @@
     width: 70%;
     padding: 20px 5px;
     background-color: $light-grey;
-    // box-shadow: 0 12px 10px #777;
+    box-shadow: 0 12px 10px #777;
+    border-radius: 5px;
     .swiper-slide {
       text-align: center;
       transition: transform .3s;

@@ -10,9 +10,17 @@
   .movie-header-poster-wrapper {
     text-align: left;
     padding-left: 40px;
+    display: flex;
+    flex-direction: column;
     // .movie-header-poster-wrapper_image
     &_image {
-      border-radius: 10px;
+      border-radius: 10px 10px 0 0;
+    }
+    &_fav-button {
+      padding: 15px;
+      border-radius: 0 0 10px 10px;
+      outline: none;
+      border: none;
     }
   }
     .movie-header-info-wrapper {

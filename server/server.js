@@ -17,13 +17,14 @@ app.use(express.json());
 connectMongoDB();
 
 // Use Routes
-app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/users", require("./routes/users"));
+app.use("/api/favourite", require("./routes/favourite"));
 
-if (process.env.ENV === "development") {
-  // logs response status and time
-  app.use(morgan("dev"));
-};
+// if (process.env.ENV === "development") {
+//   // logs response status and time
+//   app.use(morgan("dev"));
+// };
 
 if (process.env.ENV === "production") {
   // Set static folders

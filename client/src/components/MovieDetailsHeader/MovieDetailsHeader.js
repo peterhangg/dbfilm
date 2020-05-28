@@ -1,15 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { fetchMovieDetails } from '../../actions/getMovieDetails';
 import { fetchMovieCredits } from '../../actions/getMovieCredits';
+import { addToFavourites } from '../../actions/favouriteActions';
 
 import filmPlaceholder from '../../images/film-placeholder.jpg';
 import './movieDetailsHeader.scss';
 
-const MovieDetails = ({movieDetails, crew, loading, error}) => {
+const MovieDetails = ({movieDetails, crew, loading, error, isAuthenticated}) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { id } = useParams();
+  const [favourite, setFavourite] = useState(false);
+
+  const movieData = {
+    movieId: movieDetails.id,
+    movieTitle: movieDetails.title,
+    releaseDate: movieDetails.release_date,
+    poster: movieDetails.poster_path ? `https://image.tmdb.org/t/p/w300${movieDetails.poster_path}` : null,
+    genres: movieDetails.genres,
+    MovieRuntime: movieDetails.runtime,
+    score: movieDetails.vote_average
+  };
+
+  console.log("THIS IS THE MOVIE DETAILS", movieData);
 
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
@@ -18,6 +33,14 @@ const MovieDetails = ({movieDetails, crew, loading, error}) => {
 
   if (loading) return <p>LOADING MOVIE DETAILS...</p>
   if (error) return <p>ERROR WHEN LOOKING FOR MOVIE DETAILS :(</p>
+
+  const handleFavourite = () => {
+      if (!isAuthenticated) {
+        history.push("/login");
+      };
+      setFavourite(!favourite);
+      dispatch(addToFavourites(movieData));
+  };
 
   const headerStyle = {
     backgroundImage: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(https://image.tmdb.org/t/p/w1280${movieDetails.backdrop_path})`,
@@ -36,6 +59,9 @@ const MovieDetails = ({movieDetails, crew, loading, error}) => {
         <img className="movie-header-poster-wrapper_image" 
           src={movieDetails.poster_path ? `https://image.tmdb.org/t/p/w300${movieDetails.poster_path}` : filmPlaceholder} alt={movieDetails.title}
         />
+        <button className="movie-header-poster-wrapper_fav-button" onClick={handleFavourite}>
+          {!favourite ? "Add To Favourite" : "favourited" }
+        </button>
       </div>
       <div className="movie-header-info-wrapper">
       <h2 className="movie-header-info-wrapper_title">{movieDetails.title} <span>({year})</span></h2>
@@ -70,6 +96,7 @@ const mapStateToProps = state => ({
   loading: state.movieDetailsReducer.loading,
   error: state.movieDetailsReducer.error,
   crew: state.movieCreditsReducer.credit.crew,
+  isAuthenticated: state.authReducer.isAuthenticated
 });
 
 export default connect(mapStateToProps)(MovieDetails);

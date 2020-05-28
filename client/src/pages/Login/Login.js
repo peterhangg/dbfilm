@@ -56,7 +56,7 @@ const Login = ({ isAuthenticated, error }) => {
   return (
     <div className="login-container">
       <img className="wave" src={wave} alt="wave"/>
-      <div class="login-background-image">
+      <div className="login-background-image">
         <img src={bg} alt="bg"/>
       </div>
       <div className="login-form-wrapper">

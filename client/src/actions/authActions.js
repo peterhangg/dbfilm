@@ -20,7 +20,7 @@ export const loadUser = () => {
       const response = await axios.get('/api/auth/user', tokenConfig(getState));
       const data = await response.data;
       
-      dispatch({ type: USER_LOADED, payload: data});
+      dispatch({ type: USER_LOADED, payload: data });
     } catch (error) {
       dispatch(returnErrors(error.response.data, error.response.status));
       dispatch({ type: AUTH_ERROR });
@@ -75,7 +75,6 @@ export const login = ({ email, password }) => {
     }
   }
 };
-
 
 // Logout User
 export const logout = () => {
