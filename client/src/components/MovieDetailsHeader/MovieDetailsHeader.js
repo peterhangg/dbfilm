@@ -7,6 +7,8 @@ import { addToFavourites } from '../../actions/favouriteActions';
 import { deleteFavouriteMovie } from '../../actions/favouriteActions';
 
 import filmPlaceholder from '../../images/film-placeholder.jpg';
+import Fav from '../../images/fav.svg';
+import unFav from '../../images/un-fav.svg';
 import './movieDetailsHeader.scss';
 
 const MovieDetails = ({ movieDetails, crew, loading, error, isAuthenticated, favouriteMovies }) => {
@@ -14,16 +16,6 @@ const MovieDetails = ({ movieDetails, crew, loading, error, isAuthenticated, fav
   const history = useHistory();
   const { id } = useParams();
   const [favourite, setFavourite] = useState(false);
-
-  const movieData = {
-    movieId: movieDetails.id,
-    movieTitle: movieDetails.title,
-    releaseDate: movieDetails.release_date,
-    poster: movieDetails.poster_path ? `https://image.tmdb.org/t/p/w300${movieDetails.poster_path}` : null,
-    genres: movieDetails.genres,
-    MovieRuntime: movieDetails.runtime,
-    score: movieDetails.vote_average
-  };
 
   const favMovieStatus = () => {
     const movieIds = favouriteMovies.map(movie => movie.movieId);
@@ -46,7 +38,8 @@ const MovieDetails = ({ movieDetails, crew, loading, error, isAuthenticated, fav
       history.push("/login");
     };
     if (!favourite) {
-      dispatch(addToFavourites(movieData));
+      // Passing in the entire movieDetail state to add favourite endpoint
+      dispatch(addToFavourites(movieDetails));
     } else {
       dispatch(deleteFavouriteMovie(id));
     };
@@ -71,9 +64,16 @@ const MovieDetails = ({ movieDetails, crew, loading, error, isAuthenticated, fav
         <img className="movie-header-poster-wrapper_image" 
           src={movieDetails.poster_path ? `https://image.tmdb.org/t/p/w300${movieDetails.poster_path}` : filmPlaceholder} alt={movieDetails.title}
         />
-        <button className="movie-header-poster-wrapper_fav-button" onClick={handleFavourite}>
-          {!favourite ? "Add To Favourite" : "favourited" }
-        </button>
+        {!favourite ? (
+          <button className="movie-header-poster-wrapper_fav-button" onClick={handleFavourite}>
+            <img className="movie-header-poster-wrapper_fav-button-icon" src={unFav} alt="like"/> <span className="movie-header-poster-wrapper_fav-button-text">Add To Favourite</span>  
+          </button>
+          ) : (
+          <button className="movie-header-poster-wrapper_fav-button" onClick={handleFavourite}>
+            <img className="movie-header-poster-wrapper_fav-button-icon" src={Fav} alt="like"/> <span className="movie-header-poster-wrapper_fav-button-text">Favourited</span>
+          </button>
+          )
+        }
       </div>
       <div className="movie-header-info-wrapper">
       <h2 className="movie-header-info-wrapper_title">{movieDetails.title} <span>({movieYear})</span></h2>

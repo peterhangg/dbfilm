@@ -50,7 +50,7 @@
     background: linear-gradient(225deg, $tertiary-color 0%, $secondary-color 100%);
     
     &:hover {
-      background: linear-gradient(225deg, $secondary-color 0%, $tertiary-color 100%);
+      color: $primary-color;
     }
   }
 
@@ -63,10 +63,14 @@
     font-size: 1.05em;
     padding: 0 15px;
     outline:none;
+    vertical-align: middle;
     &:hover {
       cursor: pointer;
       color: $tertiary-color;
     }
+  }
+  .nav-link-text {
+    vertical-align: middle;
   }
 }
 

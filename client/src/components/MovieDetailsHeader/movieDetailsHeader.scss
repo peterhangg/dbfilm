@@ -21,6 +21,10 @@
       border-radius: 0 0 10px 10px;
       outline: none;
       border: none;
+      background-color: $light-grey;
+    }
+    &_fav-button-icon, &_fav-button-text {
+      vertical-align: middle;
     }
   }
     .movie-header-info-wrapper {

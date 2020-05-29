@@ -32,7 +32,6 @@ const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, con
       <div className="search-movie-wrapper">
         {searchResultMovies.results.length > 0 ? searchResultMovies.results.filter(movie => movie.poster_path).map(movie => (
         <div key={movie.id} className="search-movie">
-          <h4 className="search-movie_title">{movie.title}</h4>
           <Link to={`/movie/${movie.id}`}>
             <img
               className="search-movie_image"
@@ -40,6 +39,7 @@ const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, con
               alt={movie.title}
             />
           </Link>
+          <h4 className="search-movie_title">{movie.title}</h4>
           <p className="search-movie_score">
             <img className="search-movie_score-icon" src="https://img.icons8.com/offices/14/000000/filled-star.png"alt="Movie Score"/>
             {movie.vote_average}
@@ -53,7 +53,7 @@ const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, con
         <Footer />
     </div>
   )
-}
+};
 
 const mapStateToProps = state => ({
   searchResultMovies: state.searchMoviesReducer.movies,

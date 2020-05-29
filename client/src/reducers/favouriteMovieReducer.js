@@ -1,7 +1,7 @@
 import { ADD_FAVOURITE_MOVIE, GET_FAVOURITE_MOVIES, DELETE_FAVOURITE_MOVIE } from './../constants/action-types';
 
 const initialState = {
-  favouriteMovies: {},
+  favouriteMovies: [],
   loading: false,
   error: false
 };

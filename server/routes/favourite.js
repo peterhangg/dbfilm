@@ -33,7 +33,7 @@ router.post("/", auth, async (req, res) => {
   try {
   const user = await User.findById(req.user.id);
 
-  // movieData is an object that contains the movie id, title, release date, genres, runtime and score
+  // movieData is the entire movieDetails state 
   const movieData = req.body;
   const addedMovieId = parseInt(movieData.movieId, 10);
   const movieIds = user.favouriteMovies.map(movie => movie.movieId);

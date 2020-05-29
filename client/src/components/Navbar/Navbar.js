@@ -7,6 +7,7 @@ import { logout } from '../../actions/authActions';
 
 import "./navbar.scss";
 import Logo from '../../images/movie-icon.svg';
+import Profile from '../../images/profile.svg';
 
 const Navbar = ({ isAuthenticated }) => {
   const [search, setSearch] = useState("");
@@ -54,11 +55,16 @@ const Navbar = ({ isAuthenticated }) => {
             <button className="nav-link">Login</button>
           </Link>
           <Link to={"/register"}>
-            <button className="nav-link">Register</button>
+            <button className="nav-link"><span className="nav-link-text">Logout</span></button>
           </Link>
         </>
         ) : (
-          <button className="nav-link" onClick={handleLogout}>logout</button>
+          <>
+            <Link to={"/favourite"}>
+              <img className="navbar_profile" src={Profile} alt="profile"/>
+            </Link>
+            <button className="nav-link" onClick={handleLogout}>logout</button>
+          </>
         )}
       </div>
     </nav>

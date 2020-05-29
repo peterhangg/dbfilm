@@ -1,0 +1,45 @@
+@import "../../styles/variables";
+
+.favourite-movies-container {
+  // background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('../../images/cinema-doodle.jpg');
+  padding-top: 7vh;
+  height: 93vh;
+  .favourite-movie-wrapper {
+    background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('../../images/cinema-doodle.jpg');
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .favourite-movie {
+    padding: 20px 10px;
+
+    &_title {
+      color: $primary-font-color;
+      margin-bottom: 5px;
+    }
+    // favourite-movie_image
+    &_image {
+      border-radius: 5px;
+      opacity: 80%;
+      transition: transform .3s;
+      height: 500px;
+      &:hover {
+        opacity: 1;
+        transform: scale(1.05);
+        transition: transform .3s;
+      }
+    }
+    // favourite-movie_score
+    &_score {
+      color: $primary-font-color;
+      margin-top: 5px;
+    }
+    // favourite-movie_score-icon
+    &_score-icon {
+      padding-right: 3px;
+    }
+  }
+}

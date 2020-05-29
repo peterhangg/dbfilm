@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import store from './store';
-import { useDispatch } from 'react-redux';
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
@@ -10,17 +9,17 @@ import MovieDetails from './pages/MovieDetails/MovieDetails';
 import ActorDetails from './pages/ActorDetails/ActorDetails';
 import Registration from './pages/Registration/Registration';
 import Login  from './pages/Login/Login';
+import Favourite from './pages/Favourite/Favourite';
 
 import { loadUser } from './actions/authActions';
 
 import './App.scss';
 
 const App = () => {
-  const dispatch = useDispatch();
 
   useEffect(() => {
     store.dispatch(loadUser());
-  }, [dispatch]);
+  }, []);
 
   return (
     <Router>
@@ -33,6 +32,7 @@ const App = () => {
           <Route exact path ="/movie/actor/:actorID" component={ActorDetails} />
           <Route exact path="/register" component={Registration} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/favourite" component={Favourite} />
         </Switch>
       </div>
     </Router>
