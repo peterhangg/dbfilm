@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import store from './store';
+import { useDispatch } from 'react-redux';
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
@@ -15,10 +16,11 @@ import { loadUser } from './actions/authActions';
 import './App.scss';
 
 const App = () => {
+  const dispatch = useDispatch();
 
   useEffect(() => {
     store.dispatch(loadUser());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>

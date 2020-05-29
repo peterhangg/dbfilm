@@ -10,6 +10,7 @@ import { fetchNowPlaying } from '../../actions/getNowPlaying';
 import { fetchPopularMovies } from '../../actions/getPopularMovies';
 import { fetchTopRatedMovies } from '../../actions/getTopRatedMovies';
 import { fetchUpcomingMovies } from '../../actions/getUpcomingMovies';
+import { fetchFavouriteMovies } from '../../actions/favouriteActions';
 
 import './home.scss';
 
@@ -26,6 +27,7 @@ const Home = (props) => {
     dispatch(fetchPopularMovies());
     dispatch(fetchTopRatedMovies());
     dispatch(fetchUpcomingMovies());
+    dispatch(fetchFavouriteMovies());
   },[dispatch]);
 
   return (

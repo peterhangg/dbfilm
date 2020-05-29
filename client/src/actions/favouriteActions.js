@@ -1,10 +1,25 @@
 import {
-  ADD_FAVOURITE_MOVIE 
+  ADD_FAVOURITE_MOVIE,
+  GET_FAVOURITE_MOVIES,
+  DELETE_FAVOURITE_MOVIE
 } from './../constants/action-types';
 
 import { returnErrors } from './errorActions';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
+
+export const fetchFavouriteMovies = () => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get('/api/favourite', tokenConfig(getState));
+      const data = await response.data;
+  
+      dispatch({ type: GET_FAVOURITE_MOVIES, payload: data });
+    } catch (error) {
+      dispatch(returnErrors(error.response.data, error.response.status));
+    }
+  }
+};
 
 export const addToFavourites = (movieData) => {
   // Request body
@@ -19,4 +34,16 @@ export const addToFavourites = (movieData) => {
       dispatch(returnErrors(error.response.data, error.response.status));
     }
   };
-}
+};
+
+export const deleteFavouriteMovie = (movieId) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.delete(`/api/favourite/${movieId}`, tokenConfig(getState));
+      const data = await response.data;
+      dispatch({ type: DELETE_FAVOURITE_MOVIE, payload: data });
+    } catch (error) {
+      dispatch(returnErrors(error.response.data, error.response.status));
+    }
+  };
+};

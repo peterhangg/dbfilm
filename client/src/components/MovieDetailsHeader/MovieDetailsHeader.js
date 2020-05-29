@@ -4,11 +4,12 @@ import { useParams, useHistory } from 'react-router-dom';
 import { fetchMovieDetails } from '../../actions/getMovieDetails';
 import { fetchMovieCredits } from '../../actions/getMovieCredits';
 import { addToFavourites } from '../../actions/favouriteActions';
+import { deleteFavouriteMovie } from '../../actions/favouriteActions';
 
 import filmPlaceholder from '../../images/film-placeholder.jpg';
 import './movieDetailsHeader.scss';
 
-const MovieDetails = ({movieDetails, crew, loading, error, isAuthenticated}) => {
+const MovieDetails = ({ movieDetails, crew, loading, error, isAuthenticated, favouriteMovies }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { id } = useParams();
@@ -24,22 +25,32 @@ const MovieDetails = ({movieDetails, crew, loading, error, isAuthenticated}) => 
     score: movieDetails.vote_average
   };
 
-  console.log("THIS IS THE MOVIE DETAILS", movieData);
-
+  const favMovieStatus = () => {
+    const movieIds = favouriteMovies.map(movie => movie.movieId);
+    const currentMovieId = parseInt(id, 10);
+    if (movieIds.includes(currentMovieId)) {
+      setFavourite(true);
+    }
+  }
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
     dispatch(fetchMovieCredits(id));
+    favMovieStatus();
   }, [dispatch, id])
 
   if (loading) return <p>LOADING MOVIE DETAILS...</p>
   if (error) return <p>ERROR WHEN LOOKING FOR MOVIE DETAILS :(</p>
 
   const handleFavourite = () => {
-      if (!isAuthenticated) {
-        history.push("/login");
-      };
-      setFavourite(!favourite);
+    if (!isAuthenticated) {
+      history.push("/login");
+    };
+    if (!favourite) {
       dispatch(addToFavourites(movieData));
+    } else {
+      dispatch(deleteFavouriteMovie(id));
+    };
+    setFavourite(!favourite);
   };
 
   const headerStyle = {
@@ -48,8 +59,9 @@ const MovieDetails = ({movieDetails, crew, loading, error, isAuthenticated}) => 
     backgroundSize: "cover"
   };
 
-  const year = movieDetails.release_date.split("-")[0];
-  const runtime = minute => {
+  const movieYear = movieDetails.release_date.split("-")[0];
+  
+  const MovieRuntime = minute => {
     return `${Math.floor(minute/60)}h ${minute % 60}m`
   };
 
@@ -64,7 +76,7 @@ const MovieDetails = ({movieDetails, crew, loading, error, isAuthenticated}) => 
         </button>
       </div>
       <div className="movie-header-info-wrapper">
-      <h2 className="movie-header-info-wrapper_title">{movieDetails.title} <span>({year})</span></h2>
+      <h2 className="movie-header-info-wrapper_title">{movieDetails.title} <span>({movieYear})</span></h2>
       <div className="movie-header-info-wrapper-details">
         <h3 className="movie-header-info-wrapper-details_tagline">{movieDetails.tagline}</h3>
           <h2>Overview</h2>
@@ -75,7 +87,7 @@ const MovieDetails = ({movieDetails, crew, loading, error, isAuthenticated}) => 
           </p>
           <p className="movie-header-info-wrapper-details_release-date"><strong>Release Date:</strong> {movieDetails.release_date}</p>
           <p className="movie-header-info-wrapper-details_score"><strong>User Score:</strong> {movieDetails.vote_average}</p>
-          <p className="movie-header-info-wrapper-details_runtime"><strong>Runtime:</strong> {runtime(movieDetails.runtime)}</p>
+          <p className="movie-header-info-wrapper-details_runtime"><strong>Runtime:</strong> {MovieRuntime(movieDetails.runtime)}</p>
           <ul className="movie-header-info-wrapper-details_crew-list">
           {crew ? crew.filter(person => person.job === "Producer" || person.job === "Screenplay").map(person => (
             <li className="movie-header-info-wrapper-details_crew-profile" key={person.id}>
@@ -96,7 +108,8 @@ const mapStateToProps = state => ({
   loading: state.movieDetailsReducer.loading,
   error: state.movieDetailsReducer.error,
   crew: state.movieCreditsReducer.credit.crew,
-  isAuthenticated: state.authReducer.isAuthenticated
+  isAuthenticated: state.authReducer.isAuthenticated,
+  favouriteMovies: state.favouriteMovieReducer.favouriteMovies
 });
 
 export default connect(mapStateToProps)(MovieDetails);
