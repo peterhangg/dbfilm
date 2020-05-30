@@ -35,8 +35,8 @@ router.post("/", auth, async (req, res) => {
 
   // movieData is the entire movieDetails state 
   const movieData = req.body;
-  const addedMovieId = parseInt(movieData.movieId, 10);
-  const movieIds = user.favouriteMovies.map(movie => movie.movieId);
+  const addedMovieId = parseInt(movieData.id, 10);
+  const movieIds = user.favouriteMovies.map(movie => movie.id);
 
   if(movieIds.includes(addedMovieId)) throw Error("This movie is already saved in your favourites!");
 
@@ -67,9 +67,9 @@ router.delete("/:id", auth, async (req, res) => {
     // Remove the movie obj in favouriteMovies array
     const dbUpdate = await User.findByIdAndUpdate(
       { _id: user.id },
-      { $pull: { favouriteMovies: { movieId } } 
+      { $pull: { favouriteMovies: { id: movieId } } 
     },
-      { safe: true }
+      { safe: true, upsert: true }
     );
 
     if (dbUpdate) {

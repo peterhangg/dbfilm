@@ -1,16 +1,23 @@
-import React from 'react'
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react'
+import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './favourite.scss'
+import { fetchFavouriteMovies } from '../../actions/favouriteActions';
 
 const Favourite = ({ favouriteMovies }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchFavouriteMovies());
+  }, [dispatch]);
+
   return (
     <div className="favourite-movies-container">
       <div className="favourite-movie-wrapper">
       {favouriteMovies.length > 0 ? favouriteMovies.map((movie, index) => (
         <div className="favourite-movie" key={index}>
-          <Link to={`/movie/${movie.movieId}`}>
+          <Link to={`/movie/${movie.id}`}>
             <img 
               className="favourite-movie_image" 
               src={movie.poster_path ? `https://image.tmdb.org/t/p/w300${movie.poster_path}` : `http://via.placeholder.com/200x300` }

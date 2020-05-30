@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
+
 import { fetchMovieDetails } from '../../actions/getMovieDetails';
 import { fetchMovieCredits } from '../../actions/getMovieCredits';
 import { addToFavourites } from '../../actions/favouriteActions';
@@ -9,29 +10,33 @@ import { deleteFavouriteMovie } from '../../actions/favouriteActions';
 import filmPlaceholder from '../../images/film-placeholder.jpg';
 import Fav from '../../images/fav.svg';
 import unFav from '../../images/un-fav.svg';
+
 import './movieDetailsHeader.scss';
 
-const MovieDetails = ({ movieDetails, crew, loading, error, isAuthenticated, favouriteMovies }) => {
+const MovieDetails = ({ favouriteMovies, movieDetails, crew, loading, error, isAuthenticated }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { id } = useParams();
+
   const [favourite, setFavourite] = useState(false);
 
+  // Check whether this movie is favourited by the user previously
   const favMovieStatus = () => {
-    const movieIds = favouriteMovies.map(movie => movie.movieId);
+    const movieIds = favouriteMovies.map(movie => movie.id);
     const currentMovieId = parseInt(id, 10);
     if (movieIds.includes(currentMovieId)) {
       setFavourite(true);
     }
-  }
+  };
+
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
-    dispatch(fetchMovieCredits(id));
+    dispatch(fetchMovieCredits(id)); 
     favMovieStatus();
   }, [dispatch, id])
 
   if (loading) return <p>LOADING MOVIE DETAILS...</p>
-  if (error) return <p>ERROR WHEN LOOKING FOR MOVIE DETAILS :(</p>
+  if (error) return <p>ERROR WHEN LOOKING FOR MOVIE DETAILS...</p>
 
   const handleFavourite = () => {
     if (!isAuthenticated) {
