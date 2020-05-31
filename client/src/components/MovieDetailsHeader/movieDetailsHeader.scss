@@ -6,18 +6,32 @@
   justify-content: center;
   padding: 0 40px;
   margin-top: 7vh;
+  flex-direction: row;
+  padding-bottom: 20px;
 
   .movie-header-poster-wrapper {
     text-align: left;
-    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
     // .movie-header-poster-wrapper_image
     &_image {
-      border-radius: 10px;
+      border-radius: 10px 10px 0 0;
+    }
+    &_fav-button {
+      padding: 15px;
+      border-radius: 0 0 10px 10px;
+      outline: none;
+      border: none;
+      background-color: $light-grey;
+    }
+    &_fav-button-icon, &_fav-button-text {
+      vertical-align: middle;
     }
   }
     .movie-header-info-wrapper {
       padding-left: 40px;
-      width: 50%;
+      width: 60%;
+
     // .movie-header-info-wrapper_title
     &_title {
       text-align: left;
@@ -51,15 +65,17 @@
       &_crew-list {
         list-style: none;
         display: flex;
+        flex-flow: row wrap;
         margin: 0;
         padding: 16px 0 0;
       }
       // .movie-header-info-wrapper-details_crew-profile
       &_crew-profile {
-        width: 33%;
+        width: 20%;
         text-align: left;
         margin-right: 0;
         padding-right: 20px;
+        padding-bottom: 10px;
         // .movie-header-info-wrapper-details_crew-profile_person
         &_person {
           margin: 0;

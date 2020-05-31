@@ -3,7 +3,6 @@
 .search-movie-container {
   background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('../../images/cinema-doodle.jpg');
   padding-top: 7vh;
-  overflow: hidden;
   // search-movie-container_title
   &_title {
     color: $primary-font-color;

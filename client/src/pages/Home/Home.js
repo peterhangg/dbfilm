@@ -5,11 +5,14 @@ import MovieList from '../../components/MovieList/MovieList';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
+import { store } from '../../store';
+import { loadUser } from '../../actions/authActions';
 import { fetchConfig } from '../../actions/getConfig';
 import { fetchNowPlaying } from '../../actions/getNowPlaying';
 import { fetchPopularMovies } from '../../actions/getPopularMovies';
 import { fetchTopRatedMovies } from '../../actions/getTopRatedMovies';
 import { fetchUpcomingMovies } from '../../actions/getUpcomingMovies';
+import { fetchFavouriteMovies } from '../../actions/favouriteActions';
 
 import './home.scss';
 
@@ -18,14 +21,16 @@ const Home = (props) => {
 
   useEffect(() => {
     console.log("USE EFFECT IN HOME COMPONENT");
+    store.dispatch(loadUser());
     // Added a small delay in fetch to display page loader
-    dispatch(fetchConfig());
     setTimeout(() => {
       dispatch(fetchNowPlaying());
     }, 250);
+    dispatch(fetchConfig());
     dispatch(fetchPopularMovies());
     dispatch(fetchTopRatedMovies());
     dispatch(fetchUpcomingMovies());
+    dispatch(fetchFavouriteMovies());
   },[dispatch]);
 
   return (

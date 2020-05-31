@@ -15,6 +15,9 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  favouriteMovies: {
+    type: [Object]
+  },
   createdAt: {
     type: Date,
     default: Date.now

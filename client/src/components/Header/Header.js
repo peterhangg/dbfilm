@@ -31,8 +31,8 @@ const Header = ({ movies, loading, error, config }) => {
   return (
     <Swiper {...params}>
       {movies.results.filter(movie => movie.backdrop_path).map(movie => (
-        <Link to={`movie/${movie.id}`}>  
-          <div key={movie.id} className="swiper-slide" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.60)), url(${baseBackdropURL}${movie.backdrop_path})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center center" }}>
+        <Link key={movie.id} to={`movie/${movie.id}`}>  
+          <div key={movie.id} className="swiper-slide" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${baseBackdropURL}${movie.backdrop_path})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center center" }}>
             <div className="header-content">
               <h2 className="header-content_title">{movie.title}</h2>
               <p className="header-content_score">

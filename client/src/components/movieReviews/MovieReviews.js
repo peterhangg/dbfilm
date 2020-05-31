@@ -12,6 +12,7 @@ const MovieReviews = ({ reviews, loading, error}) => {
   const [allReviews, setAllReviews] = useState(false);
 
   useEffect(() => {
+    setAllReviews(false);
     dispatch(fetchMovieReviews(id));
   }, [dispatch, id]);
 
@@ -26,7 +27,7 @@ const MovieReviews = ({ reviews, loading, error}) => {
 
   return (
     <div className="movie-reviews-container">
-      <h1>REVIEWS</h1>
+      <h1>Reviews</h1>
       {reviews.length > 0 ? 
         <div className="movie-reviews-wrapper" key={reviews[0].id}>
           <h3 className="movie-reviews-wrapper_author">Review by {reviews[0].author}</h3>

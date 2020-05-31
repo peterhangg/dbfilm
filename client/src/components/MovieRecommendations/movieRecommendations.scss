@@ -8,6 +8,7 @@
     box-shadow: 0 12px 10px #777;
     margin-bottom: 20px;
     background-color: $light-grey;
+    border-radius: 5px;
     .swiper-slide {
       text-align: center;
       transition: transform .3s;
@@ -25,7 +26,7 @@
       }
       &:hover {
         opacity: 1;
-        transform: scale(1.1);
+        transform: scale(1.05);
         transition: transform .3s;
       }
     }

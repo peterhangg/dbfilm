@@ -7,7 +7,6 @@ import MovieDetailsHeader from '../../components/MovieDetailsHeader/MovieDetails
 import MovieReviews from '../../components/movieReviews/MovieReviews';
 import MovieRecommendations from '../../components/MovieRecommendations/MovieRecommendations';
 import Footer from '../../components/Footer/Footer';
-
 import './movieDetails.scss';
 
 const MovieInfo = () => {
@@ -29,6 +28,5 @@ const MovieInfo = () => {
     </div>
   )
 }
-
 
 export default MovieInfo;
