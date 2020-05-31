@@ -4,10 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 40px;
   margin-top: 7vh;
   flex-direction: row;
-  padding-bottom: 20px;
+  padding: 20px 0;
 
   .movie-header-poster-wrapper {
     text-align: left;
@@ -16,6 +15,8 @@
     // .movie-header-poster-wrapper_image
     &_image {
       border-radius: 10px 10px 0 0;
+      max-width: 100%;
+      height: auto;
     }
     &_fav-button {
       padding: 15px;
@@ -30,7 +31,7 @@
   }
     .movie-header-info-wrapper {
       padding-left: 40px;
-      width: 60%;
+      width: 50%;
 
     // .movie-header-info-wrapper_title
     &_title {
@@ -43,6 +44,7 @@
       opacity: 90%;
     }
     .movie-header-info-wrapper-details {
+      width: 90%;
       color: $secondary-font-color;
       text-align: left;
       // .movie-header-info-wrapper-details_tagline
@@ -81,7 +83,7 @@
           margin: 0;
           font-weight: 700;
           padding-bottom: 2px;
-          font-size: 1.2em;
+          font-size: 1.1em;
         }
         // .movie-header-info-wrapper-details_crew-profile_job
         &_job {
@@ -92,9 +94,51 @@
   }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+/* Extra small devices (phones, 600px and down) */
+@media all and (max-width: 600px) {
   .movie-header-container {
-    height: 60vh;
+    flex-direction: column;
+    padding: 20px 0px;
+    .movie-header-info-wrapper {
+      width: 85%;
+      padding-left: 0px;
+      .movie-header-info-wrapper-details {
+        strong {
+          font-size: 1em;
+        }
+        p {
+          font-size: 0.9em;
+        }
+        &_crew-profile {
+          &_person {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media all and (min-width: 601px) and (max-width: 1200px) {
+  .movie-header-container {
+    padding: 20px 20px;
+    .movie-header-info-wrapper {
+      padding-left: 20px;
+      .movie-header-info-wrapper-details {
+        width: 100%;
+        strong {
+          font-size: 1em;
+        }
+        p {
+          font-size: 0.9em;
+        }
+        &_crew-profile {
+          &_person {
+            font-size: 1em;
+          }
+        }
+      }
+    }
   }
 }

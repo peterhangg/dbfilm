@@ -53,3 +53,9 @@
     }
   }
 }
+
+@media all and (max-width: 600px) {
+  .movie-reviews-container {
+    width: 90%;
+  }
+}

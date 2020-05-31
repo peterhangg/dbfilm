@@ -24,10 +24,10 @@ const MovieCast = ({ cast, loading, error }) => {
       485: {
         slidesPerView: 2,
       },
-      680: {
+      745: {
         slidesPerView: 3,
       },
-      930: {
+      972: {
         slidesPerView: 4,
       },
       1220: {
