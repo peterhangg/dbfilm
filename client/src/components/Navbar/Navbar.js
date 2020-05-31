@@ -50,21 +50,21 @@ const Navbar = ({ isAuthenticated }) => {
       </form>
       <div>
         {!isAuthenticated ? (
-        <>
+        <div className="navbar_links">
           <Link to={"/login"}>
-            <button className="nav-link">Login</button>
+            <button className="navbar_links_button">Login</button>
           </Link>
           <Link to={"/register"}>
-            <button className="nav-link"><span className="nav-link-text">Logout</span></button>
+            <button className="navbar_links_button">Register</button>
           </Link>
-        </>
+        </div>
         ) : (
-          <>
+          <div className="navbar_links">
             <Link to={"/favourite"}>
               <img className="navbar_profile" src={Profile} alt="profile"/>
             </Link>
-            <button className="nav-link" onClick={handleLogout}>logout</button>
-          </>
+            <button className="navbar_links_button" onClick={handleLogout}>Logout</button>
+          </div>
         )}
       </div>
     </nav>

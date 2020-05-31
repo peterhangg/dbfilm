@@ -10,14 +10,14 @@
   top: 0;
   width: 100%;
   z-index: 50;
-
+  // navbar_logo
   &_logo {
     margin: 0 auto;
     padding-left: 10px;
     width: 50px;
     cursor: pointer;
   }
-
+  // navbar_form
   &_form {
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +25,7 @@
     justify-content: center;
     width: 50%;
   }
-
+  // navbar_search-input
   &_search-input {
     padding: 8px 20px;
     border-radius: 30px;
@@ -37,7 +37,7 @@
       outline: none;
     }
   }
-
+  // navbar_search-button
   &_search-button {
     height: 40px;
     padding: 8px 20px;
@@ -53,24 +53,24 @@
       color: $primary-color;
     }
   }
-
-  .nav-link {
-    color: $secondary-font-color;
-    border: none;
-    background: $primary-color;
-    font-weight: bold;
-    letter-spacing: 2.5px;
-    font-size: 1.05em;
-    padding: 0 15px;
-    outline:none;
-    vertical-align: middle;
-    &:hover {
-      cursor: pointer;
-      color: $tertiary-color;
+  // navbar_links
+  &_links {
+    display: flex;
+    // navbar_links_button
+    &_button {
+      color: $secondary-font-color;
+      border: none;
+      background: $primary-color;
+      font-weight: bold;
+      letter-spacing: 2.5px;
+      font-size: 1.05em;
+      padding: 0 15px;
+      outline:none;
+      &:hover {
+        cursor: pointer;
+        color: $tertiary-color;
+      }
     }
-  }
-  .nav-link-text {
-    vertical-align: middle;
   }
 }
 

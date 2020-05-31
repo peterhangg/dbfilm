@@ -13,7 +13,7 @@ const favouriteMovieReducer = (state = initialState, action) => {
     case GET_FAVOURITE_MOVIES:
       return { ...state, favouriteMovies: action.payload };
     case DELETE_FAVOURITE_MOVIE:
-      return { ...state, favouriteMovies: state.favouriteMovies.filter(movie => movie. id !== action.payload) };
+      return { ...state, favouriteMovies: state.favouriteMovies.filter(movie => movie.id !== action.payload) };
     default:
       return state;
   }

@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import {store} from './store';
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
@@ -11,16 +10,9 @@ import Registration from './pages/Registration/Registration';
 import Login  from './pages/Login/Login';
 import Favourite from './pages/Favourite/Favourite';
 
-import { loadUser } from './actions/authActions';
-
 import './App.scss';
 
 const App = () => {
-
-  useEffect(() => {
-    store.dispatch(loadUser());
-  }, []);
-
   return (
     <Router>
       <div className="App">
@@ -37,6 +29,6 @@ const App = () => {
       </div>
     </Router>
   );
-}
+};
 
 export default App;

@@ -24,15 +24,14 @@ const MovieDetails = ({ favouriteMovies, movieDetails, crew, loading, error, isA
   const favMovieStatus = () => {
     const movieIds = favouriteMovies.map(movie => movie.id);
     const currentMovieId = parseInt(id, 10);
-    if (movieIds.includes(currentMovieId)) {
-      setFavourite(true);
-    }
+
+    movieIds.includes(currentMovieId) ? setFavourite(true) : setFavourite(false);
   };
 
   useEffect(() => {
+    favMovieStatus();
     dispatch(fetchMovieDetails(id));
     dispatch(fetchMovieCredits(id)); 
-    favMovieStatus();
   }, [dispatch, id])
 
   if (loading) return <p>LOADING MOVIE DETAILS...</p>
@@ -43,7 +42,7 @@ const MovieDetails = ({ favouriteMovies, movieDetails, crew, loading, error, isA
       history.push("/login");
     };
     if (!favourite) {
-      // Passing in the entire movieDetail state to add favourite endpoint
+      // Passing in the entire movieDetail state to add favourite endpoint (/api/favourite)
       dispatch(addToFavourites(movieDetails));
     } else {
       dispatch(deleteFavouriteMovie(id));
@@ -71,38 +70,38 @@ const MovieDetails = ({ favouriteMovies, movieDetails, crew, loading, error, isA
         />
         {!favourite ? (
           <button className="movie-header-poster-wrapper_fav-button" onClick={handleFavourite}>
-            <img className="movie-header-poster-wrapper_fav-button-icon" src={unFav} alt="like"/> <span className="movie-header-poster-wrapper_fav-button-text">Add To Favourite</span>  
+            <img className="movie-header-poster-wrapper_fav-button-icon" src={unFav} alt="un-favourite"/> <span className="movie-header-poster-wrapper_fav-button-text">Add To Favourite</span>  
           </button>
           ) : (
           <button className="movie-header-poster-wrapper_fav-button" onClick={handleFavourite}>
-            <img className="movie-header-poster-wrapper_fav-button-icon" src={Fav} alt="like"/> <span className="movie-header-poster-wrapper_fav-button-text">Favourited</span>
+            <img className="movie-header-poster-wrapper_fav-button-icon" src={Fav} alt="favourite"/> <span className="movie-header-poster-wrapper_fav-button-text">Favourited</span>
           </button>
           )
         }
       </div>
       <div className="movie-header-info-wrapper">
-      <h2 className="movie-header-info-wrapper_title">{movieDetails.title} <span>({movieYear})</span></h2>
-      <div className="movie-header-info-wrapper-details">
-        <h3 className="movie-header-info-wrapper-details_tagline">{movieDetails.tagline}</h3>
-          <h2>Overview</h2>
-          <p className="movie-header-info-wrapper-details_overview">{movieDetails.overview}</p>
-          <p className="movie-header-info-wrapper-details_genre"><strong>Genres:</strong> {movieDetails.genres.map(genre =>(
-            movieDetails.genres.length === 1 ? genre.name : genre.name + " | "
-            ))}
-          </p>
-          <p className="movie-header-info-wrapper-details_release-date"><strong>Release Date:</strong> {movieDetails.release_date}</p>
-          <p className="movie-header-info-wrapper-details_score"><strong>User Score:</strong> {movieDetails.vote_average}</p>
-          <p className="movie-header-info-wrapper-details_runtime"><strong>Runtime:</strong> {MovieRuntime(movieDetails.runtime)}</p>
-          <ul className="movie-header-info-wrapper-details_crew-list">
-          {crew ? crew.filter(person => person.job === "Producer" || person.job === "Screenplay").map(person => (
-            <li className="movie-header-info-wrapper-details_crew-profile" key={person.id}>
-              <p className="movie-header-info-wrapper-details_crew-profile_person">{person.name}</p>
-              <p className="movie-header-info-wrapper-details_crew-profile_job">{person.job}</p>
-            </li>
-            )) :
-            ""}
-          </ul>
-      </div>
+        <h2 className="movie-header-info-wrapper_title">{movieDetails.title} <span>({movieYear})</span></h2>
+        <div className="movie-header-info-wrapper-details">
+          <h3 className="movie-header-info-wrapper-details_tagline">{movieDetails.tagline}</h3>
+            <h2>Overview</h2>
+            <p className="movie-header-info-wrapper-details_overview">{movieDetails.overview}</p>
+            <p className="movie-header-info-wrapper-details_genre"><strong>Genres:</strong> {movieDetails.genres.map(genre =>(
+              movieDetails.genres.length === 1 ? genre.name : genre.name + " | "
+              ))}
+            </p>
+            <p className="movie-header-info-wrapper-details_release-date"><strong>Release Date:</strong> {movieDetails.release_date}</p>
+            <p className="movie-header-info-wrapper-details_score"><strong>User Score:</strong> {movieDetails.vote_average}</p>
+            <p className="movie-header-info-wrapper-details_runtime"><strong>Runtime:</strong> {MovieRuntime(movieDetails.runtime)}</p>
+            <ul className="movie-header-info-wrapper-details_crew-list">
+            {crew ? crew.filter(person => person.job === "Producer" || person.job === "Screenplay").map((person, index) => (
+              <li className="movie-header-info-wrapper-details_crew-profile" key={index}>
+                <p className="movie-header-info-wrapper-details_crew-profile_person">{person.name}</p>
+                <p className="movie-header-info-wrapper-details_crew-profile_job">{person.job}</p>
+              </li>
+              )) :
+              ""}
+            </ul>
+        </div>
       </div>
     </div>
   )

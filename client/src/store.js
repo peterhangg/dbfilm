@@ -11,17 +11,15 @@ const persistConfig = {
 
 const middleware = [thunk];
 const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 const reducers = persistReducer(persistConfig, rootReducer);
+
 const store = createStore(
   reducers,
   {},
   storeEnhancers(applyMiddleware(...middleware)),
 );
 
-// store.subscribe(() => saveStateToLocalStorage(store.getState()));
 store.subscribe(() => console.log('State from Store: ',store.getState()));
-
 const persistor = persistStore(store);
 
 export { store, persistor };
