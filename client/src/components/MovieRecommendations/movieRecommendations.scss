@@ -35,6 +35,15 @@
       color: $secondary-color;
     }
   }
+  .no-movie-recommendation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_text {
+      font-size: 1.2em;
+      font-weight:400;
+    }
+  }
 };
 
 @media all and (max-width: 600px) {

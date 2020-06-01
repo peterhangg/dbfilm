@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
 .movie-trailer-container {
-
+  padding: 10px 0;
   .trailer-swiper-container {
     position: relative;
     overflow: hidden;
@@ -21,7 +21,6 @@
       color: $secondary-color;
     }
   }
-
   .no-movie-trailer-container {
     display: flex;
     justify-content: center;

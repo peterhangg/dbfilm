@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 import { login } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
 
-import wave from '../../images/wave.png';
-import bg from '../../images/bg.svg';
+import wave from '../../images/form-bg.png';
+import bg from '../../images/form.svg';
 import avatar from '../../images/avatar.svg';
 
 import './login.scss';

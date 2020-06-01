@@ -50,7 +50,7 @@ const Navbar = ({ isAuthenticated }) => {
       </div>
       <div className="navbar_form-wrapper">
         <form className="form" onSubmit={getSearchResult}>
-          <input className="form_search-input" value={search} onChange={updateSearch} type="text" placeholder="Search for a movie..." required />
+          <input className="form_search-input" value={search} onChange={updateSearch} type="text" placeholder="Find a movie..." required />
           <button className="form_search-button" type="submit">Search</button>
         </form>
       </div>

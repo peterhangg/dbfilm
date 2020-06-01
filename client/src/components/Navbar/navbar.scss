@@ -14,7 +14,7 @@
   &_logo {
     margin: 0 auto;
     padding-left: 10px;
-    width: 50px;
+    width: 35px;
     cursor: pointer;
   }
   &_form-wrapper {
@@ -24,23 +24,24 @@
       display: flex;
       width: 100%;
       &_search-input {
-        padding: 8px 20px;
+        padding: 2px 2px;
+        height: 25px;
         border-radius: 30px;
         border: none;
-        font-size: 1.1em;
         overflow: hidden;
         width: 60%;
         &:focus {
           outline: none;
         }
+        &::placeholder {
+          padding-left: 5px;
+        }
       }
       // navbar_search-button
       &_search-button {
-        height: 40px;
-        padding: 8px 20px;
         border-radius: 30px;
+        padding: 7px 10px;
         border: none;
-        font-size: 1.1em;
         font-weight: 700;
         margin-left: -40px;
         color: $secondary-font-color;
@@ -80,6 +81,30 @@
   .navbar {
     &_links {
       display: none;
+    }
+  }
+}
+
+
+
+@media all and (min-width: 768px) {
+  .navbar {
+    &_logo {
+      width: 50px;
+    }
+    &_form-wrapper {
+      .form {
+        &_search-input {
+          padding: 7.5px 20px;
+          font-size: 1.1em;
+        }
+        // navbar_search-button
+        &_search-button {
+          padding: 8px 20px;
+          height: 40px;
+          font-size: 1.1em;
+        }
+      }
     }
   }
 }

@@ -7,15 +7,20 @@
   &_page-item {
     display: inline;
     padding: 0px 4px;
+  }
+  &_page-link {
+    color: $primary-font-color;
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    outline: none;
     cursor: pointer;
-    color: $primary-font-color;;
+    &:hover {
+      color: $tertiary-color;
+    }
   }
 }
 
-.pagination a.active {
+.pagination button.active {
   color: $secondary-color;
-}
-
-.pagination a:hover:not(.active) {
-  color: $tertiary-color;
 }
