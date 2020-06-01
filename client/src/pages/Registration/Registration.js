@@ -57,7 +57,7 @@ const Registration = ({ error, isAuthenticated }) => {
   return (
     <div className="registration-container">
       <img className="wave" src={wave} alt="wave"/>
-      <div class="registration-background-image">
+      <div className="registration-background-image">
         <img src={bg} alt="bg"/>
       </div>
       <div className="registration-form-wrapper">

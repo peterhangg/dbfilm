@@ -1,0 +1,43 @@
+@import "../../styles/variables";
+
+.side-nav {
+  flex-flow: column nowrap;
+  background-color: $primary-color;
+  position: fixed;
+  margin-top: 7vh;
+  top: 0;
+  right: 0;
+  width: 50%;
+  max-width: 200px;
+  z-index: 100;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  border-bottom-left-radius: 5px;
+  
+  a {
+    text-decoration: none;
+  }
+
+  .side-menu {
+    list-style: none;
+    padding-left: 0;
+    // side-menu_links
+    &_links {
+      color: $secondary-font-color;
+      padding: 5px 0;
+      &:hover {
+        color: $tertiary-color;
+      }
+    }
+  }
+}
+
+.side-nav.open {
+  transform: translateX(0);
+}
+
+@media all and (min-width: 769px) {
+  .side-nav {
+    display: none;
+  }
+}
