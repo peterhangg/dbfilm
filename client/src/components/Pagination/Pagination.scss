@@ -2,21 +2,25 @@
 
 .pagination {
   list-style: none;
-  color: white;
-  box-shadow: 0 10px 20px 0 rgba(black, 0.55);
+  color: $primary-font-color;
 
   &_page-item {
     display: inline;
     padding: 0px 4px;
+  }
+  &_page-link {
+    color: $primary-font-color;
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    outline: none;
     cursor: pointer;
-    color: white;
+    &:hover {
+      color: $tertiary-color;
+    }
   }
 }
 
-.pagination a.active {
-  color: red;
-}
-
-.pagination a:hover:not(.active) {
-  color: blue;
+.pagination button.active {
+  color: $secondary-color;
 }

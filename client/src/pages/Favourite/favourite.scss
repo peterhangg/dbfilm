@@ -1,21 +1,18 @@
 @import "../../styles/variables";
 
 .favourite-movies-container {
-  // background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('../../images/cinema-doodle.jpg');
+  background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('../../images/cinema-doodle.jpg');
   padding-top: 7vh;
-  height: 93vh;
   .favourite-movie-wrapper {
-    background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('../../images/cinema-doodle.jpg');
+    padding: 0 20px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     justify-content: center;
     align-items: center;
-
   }
-
   .favourite-movie {
     padding: 20px 10px;
-
+    // favourite-movie_title
     &_title {
       color: $primary-font-color;
       margin-bottom: 5px;
@@ -25,7 +22,8 @@
       border-radius: 5px;
       opacity: 80%;
       transition: transform .3s;
-      height: 500px;
+      max-width: 100%;
+      height: auto;
       &:hover {
         opacity: 1;
         transform: scale(1.05);
@@ -36,10 +34,40 @@
     &_score {
       color: $primary-font-color;
       margin-top: 5px;
+      font-weight: bold;
     }
     // favourite-movie_score-icon
     &_score-icon {
       padding-right: 3px;
+    }
+  }
+}
+
+@media all and (max-device-width: 480px) {
+  .favourite-movies-container {
+    &_header {
+      font-size: 1.1em;
+    }
+    .favourite-movie-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media all and (min-device-width: 481px) and (max-device-width: 768px) {
+  .favourite-movies-container {
+    font-size: 1em;
+    .favourite-movie-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media all and (min-device-width: 769px) and (max-device-width: 1200px) {
+  .favourite-movies-container {
+    font-size: 1em;
+    .favourite-movie-wrapper {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 }

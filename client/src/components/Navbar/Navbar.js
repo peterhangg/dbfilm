@@ -5,6 +5,8 @@ import { useHistory, Link } from 'react-router-dom';
 import { fetchSearchMovies } from '../../actions/getSearchMovies';
 import { logout } from '../../actions/authActions';
 
+import MenuToggleButton from '../MenuToggleButton/MenuToggleButton';
+
 import "./navbar.scss";
 import Logo from '../../images/movie-icon.svg';
 import Profile from '../../images/profile.svg';
@@ -41,32 +43,37 @@ const Navbar = ({ isAuthenticated }) => {
 
   return (
     <nav className="navbar">
-      <Link className="navbar_icon" to={"/"}>
-        <img className="navbar_logo" src={Logo} alt="movie-icon"/>
-      </Link>
-      <form className="navbar_form" onSubmit={getSearchResult}>
-        <input className="navbar_search-input" value={search} onChange={updateSearch} type="text" placeholder="Search for a movie..." required />
-        <button className="navbar_search-button" type="submit">Search</button>
-      </form>
-      <div>
+      <div className="navbar_icon-wrapper">
+        <Link to={"/"}>
+          <img className="navbar_logo" src={Logo} alt="movie-icon"/>
+        </Link>
+      </div>
+      <div className="navbar_form-wrapper">
+        <form className="form" onSubmit={getSearchResult}>
+          <input className="form_search-input" value={search} onChange={updateSearch} type="text" placeholder="Find a movie..." required />
+          <button className="form_search-button" type="submit">Search</button>
+        </form>
+      </div>
         {!isAuthenticated ? (
-        <div className="navbar_links">
+        <ul className="navbar_links">
           <Link to={"/login"}>
-            <button className="navbar_links_button">Login</button>
+            <li className="navbar_links_button">Login</li>
           </Link>
           <Link to={"/register"}>
-            <button className="navbar_links_button">Register</button>
+            <li className="navbar_links_button">Register</li>
           </Link>
-        </div>
+        </ul>
         ) : (
-          <div className="navbar_links">
+          <ul className="navbar_links">
             <Link to={"/favourite"}>
-              <img className="navbar_profile" src={Profile} alt="profile"/>
+              <li className="navbar_links_button">
+                <img className="navbar_profile" src={Profile} alt="profile"/>
+              </li>
             </Link>
-            <button className="navbar_links_button" onClick={handleLogout}>Logout</button>
-          </div>
+              <li className="navbar_links_button" onClick={handleLogout}>Logout</li>
+          </ul>
         )}
-      </div>
+        <MenuToggleButton />
     </nav>
   )
 };

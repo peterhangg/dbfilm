@@ -2,9 +2,12 @@ import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import './favourite.scss'
+import Footer from '../../components/Footer/Footer';
+
 import { fetchFavouriteMovies } from '../../actions/favouriteActions';
+
 import posterPlaceholder from '../../images/poster-placeholder.jpg';
+import './favourite.scss'
 
 const Favourite = ({ favouriteMovies }) => {
   const dispatch = useDispatch();
@@ -15,6 +18,7 @@ const Favourite = ({ favouriteMovies }) => {
 
   return (
     <div className="favourite-movies-container">
+      <h2 className="favourite-movies-container_header">Favourite Movies</h2>
       <div className="favourite-movie-wrapper">
       {favouriteMovies.length > 0 ? favouriteMovies.map((movie, index) => (
         <div className="favourite-movie" key={index}>
@@ -36,6 +40,7 @@ const Favourite = ({ favouriteMovies }) => {
         )
       }
       </div>
+      <Footer />
     </div>
   )
 };

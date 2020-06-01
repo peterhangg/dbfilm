@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom';
 
 import Pagination from '../../components/Pagination/Pagination';
 import Footer from '../../components/Footer/Footer';
+import Loader from '../../components/Loader/Loader';
 
 import './search.scss';
 
-const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, config, totalPages}) => {
+const Search = ({ searchResultMovies, searchMoviesLoading, searchMoviesError, config, totalPages }) => {
   // This is to get your search parmas from route search-result/:id
   const { searchInput } = useParams();
   const dispatch = useDispatch();
@@ -23,12 +24,12 @@ const Search = ({searchResultMovies, searchMoviesLoading, searchMoviesError, con
     dispatch(fetchSearchMovies(searchInput, currentPage));
   },[currentPage, dispatch, searchInput]);
 
-  if (searchMoviesLoading) return <p>Loading movies...</p>
-  if (searchMoviesError) return <p>Unable to display movies.</p>
+  if (searchMoviesLoading) return <Loader />;
+  if (searchMoviesError) return <p>Unable to display movies.</p>;
 
   return (
     <div className="search-movie-container">
-      <h2 className="search-movie-container_title">Search Results for: {searchInput}</h2>
+      <h2 className="search-movie-container_title">Results for: {searchInput}</h2>
       <div className="search-movie-wrapper">
         {searchResultMovies.results.length > 0 ? searchResultMovies.results.filter(movie => movie.poster_path).map(movie => (
         <div key={movie.id} className="search-movie">

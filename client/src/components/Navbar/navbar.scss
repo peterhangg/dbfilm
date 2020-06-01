@@ -2,7 +2,7 @@
 
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   min-height: 7vh;
   background-color: $primary-color;
@@ -14,48 +14,51 @@
   &_logo {
     margin: 0 auto;
     padding-left: 10px;
-    width: 50px;
+    width: 35px;
     cursor: pointer;
   }
-  // navbar_form
-  &_form {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    justify-content: center;
-    width: 50%;
-  }
-  // navbar_search-input
-  &_search-input {
-    padding: 8px 20px;
-    border-radius: 30px;
-    border: none;
-    font-size: 1.1em;
-    overflow: hidden;
-    width: 60%;
-    &:focus {
-      outline: none;
-    }
-  }
-  // navbar_search-button
-  &_search-button {
-    height: 40px;
-    padding: 8px 20px;
-    border-radius: 30px;
-    border: none;
-    font-size: 1.1em;
-    font-weight: 700;
-    margin-left: -40px;
-    color: $secondary-font-color;
-    background: linear-gradient(225deg, $tertiary-color 0%, $secondary-color 100%);
-    
-    &:hover {
-      color: $primary-color;
+  &_form-wrapper {
+    flex: 1;
+    .form {
+      justify-content: center;
+      display: flex;
+      width: 100%;
+      &_search-input {
+        padding: 2px 2px;
+        height: 25px;
+        border-radius: 30px;
+        border: none;
+        overflow: hidden;
+        width: 60%;
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          padding-left: 5px;
+        }
+      }
+      // navbar_search-button
+      &_search-button {
+        border-radius: 30px;
+        padding: 7px 10px;
+        border: none;
+        font-weight: 700;
+        margin-left: -40px;
+        color: $secondary-font-color;
+        background: linear-gradient(225deg, $tertiary-color 0%, $secondary-color 100%);
+        
+        &:hover {
+          color: $primary-color;
+        }
+      }
     }
   }
   // navbar_links
   &_links {
     display: flex;
+    list-style: none;
+    align-items: center;
+    padding-left: 0;
     // navbar_links_button
     &_button {
       color: $secondary-font-color;
@@ -64,7 +67,7 @@
       font-weight: bold;
       letter-spacing: 2.5px;
       font-size: 1.05em;
-      padding: 0 15px;
+      padding: 0 10px;
       outline:none;
       &:hover {
         cursor: pointer;
@@ -74,20 +77,34 @@
   }
 }
 
-@media only screen and (max-width: 485px) {
+@media all and (max-width: 768px) {
   .navbar {
-    &_form {
-      width: 70%;
+    &_links {
+      display: none;
     }
-    &_search-input {
-      font-size: 1em;
-    }
-    &_search-button {
-      font-size: 1em;
-      padding: 5px 15px;
-    }
+  }
+}
+
+
+
+@media all and (min-width: 768px) {
+  .navbar {
     &_logo {
-      width:35px;
+      width: 50px;
+    }
+    &_form-wrapper {
+      .form {
+        &_search-input {
+          padding: 7.5px 20px;
+          font-size: 1.1em;
+        }
+        // navbar_search-button
+        &_search-button {
+          padding: 8px 20px;
+          height: 40px;
+          font-size: 1.1em;
+        }
+      }
     }
   }
 }

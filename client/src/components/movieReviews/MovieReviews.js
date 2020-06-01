@@ -27,7 +27,7 @@ const MovieReviews = ({ reviews, loading, error}) => {
 
   return (
     <div className="movie-reviews-container">
-      <h1>Reviews</h1>
+      <h2>Reviews</h2>
       {reviews.length > 0 ? 
         <div className="movie-reviews-wrapper" key={reviews[0].id}>
           <h3 className="movie-reviews-wrapper_author">Review by {reviews[0].author}</h3>
@@ -42,7 +42,7 @@ const MovieReviews = ({ reviews, loading, error}) => {
             <img className="no-movie-review-container_image" src={noReviewsImage} alt="no reviews"></img>
           </div>
           <div className="no-movie-review-container_text-wrapper">
-          <p className="no-movie-review-container_text">Currently No Reviews Available.</p>
+          <p className="no-movie-review-container_text">Currently No reviews available.</p>
           </div>
         </div>
       }

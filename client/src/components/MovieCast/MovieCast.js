@@ -3,7 +3,9 @@ import { connect, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { fetchMovieCredits } from '../../actions/getMovieCredits';
 
+import castPlaceholder from '../../images/cast-placeholder.jpg';
 import './movieCast.scss';
+
 
 import Swiper from 'react-id-swiper';
 import 'swiper/swiper.scss'
@@ -24,10 +26,10 @@ const MovieCast = ({ cast, loading, error }) => {
       485: {
         slidesPerView: 2,
       },
-      680: {
+      745: {
         slidesPerView: 3,
       },
-      930: {
+      972: {
         slidesPerView: 4,
       },
       1220: {
@@ -57,7 +59,7 @@ const MovieCast = ({ cast, loading, error }) => {
             {cast.map((actor, index) => (
               <div key={index} className="swiper-slide">
                 <Link to={`/movie/actor/${actor.id}`}>
-                  <img className="swiper-slide_image"src={ actor.profile_path == null ? `http://via.placeholder.com/200x300` : `https://image.tmdb.org/t/p/w185${actor.profile_path}`} alt={actor.name}/>
+                  <img className="swiper-slide_image"src={ actor.profile_path == null ? castPlaceholder : `https://image.tmdb.org/t/p/w185${actor.profile_path}`} alt={actor.name}/>
                 </Link>
                 <p>{actor.name}</p>
               </div>

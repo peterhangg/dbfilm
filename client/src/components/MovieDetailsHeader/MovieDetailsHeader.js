@@ -59,7 +59,7 @@ const MovieDetails = ({ favouriteMovies, movieDetails, crew, loading, error, isA
   const movieYear = movieDetails.release_date.split("-")[0];
   
   const MovieRuntime = minute => {
-    return `${Math.floor(minute/60)}h ${minute % 60}m`
+    return `${Math.floor(minute/60)}h ${minute % 60}m`;
   };
 
   return (

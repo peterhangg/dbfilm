@@ -26,13 +26,13 @@ const MovieList = ({label, loading, errors, movies}) => {
       785: {
         slidesPerView: 4,
       },
-      925: {
+      985: {
         slidesPerView: 5,
       },
-      1125: {
+      1160: {
         slidesPerView: 6,
       },
-      1295: {
+      1310: {
         slidesPerView: 7,
       },
       1485: {

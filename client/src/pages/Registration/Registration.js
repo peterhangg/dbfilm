@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 import { register } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
 
-import wave from '../../images/wave.png';
-import bg from '../../images/bg.svg';
+import wave from '../../images/form-bg.png';
+import bg from '../../images/form.svg';
 import avatar from '../../images/avatar.svg';
 
 import './registration.scss';
@@ -57,7 +57,7 @@ const Registration = ({ error, isAuthenticated }) => {
   return (
     <div className="registration-container">
       <img className="wave" src={wave} alt="wave"/>
-      <div class="registration-background-image">
+      <div className="registration-background-image">
         <img src={bg} alt="bg"/>
       </div>
       <div className="registration-form-wrapper">

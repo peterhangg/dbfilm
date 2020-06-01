@@ -9,7 +9,7 @@ import 'swiper/swiper.scss'
 
 import noTrailers from '../../images/no-trailers.jpg';
 
-const MovieTrailer = ({trailers, loading, error}) => {
+const MovieTrailer = ({ trailers, loading, error }) => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -32,7 +32,7 @@ const MovieTrailer = ({trailers, loading, error}) => {
 
   return (
     <section className="movie-trailer-container">
-      <h2>TRAILER</h2>
+      <h1>Trailer</h1>
       {trailers.length > 0 ?
         <Swiper {...params} key={trailers.length}>
           {trailers.map((trailer, index) => (
@@ -52,7 +52,7 @@ const MovieTrailer = ({trailers, loading, error}) => {
             <img className="no-trailer-container_image" src={noTrailers} alt="notrailer"></img>
           </div>
           <div className="no-movie-trailer-container_text-wrapper">
-            <p className="no-movie-trailer-container_text">Currently No Trailers Available.</p>
+            <p className="no-movie-trailer-container_text">Currently no trailers available.</p>
           </div>
         </div>
       }
