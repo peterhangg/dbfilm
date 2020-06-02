@@ -59,6 +59,9 @@
     list-style: none;
     align-items: center;
     padding-left: 0;
+    a {
+      text-decoration: none;
+    }
     // navbar_links_button
     &_button {
       color: $secondary-font-color;
