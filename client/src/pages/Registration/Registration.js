@@ -76,12 +76,12 @@ const Registration = ({ error, isAuthenticated }) => {
             <input className="registration-form_item_input" type="text" name="name" value={name} onChange={handleChange} placeholder="name..."/>
           </div>
           <div className="registration-form_item">
-            <label className="registration-form_item_label" htmlFor="password">Password</label>
-            <input className="registration-form_item_input" type="password" name="password" value={password} onChange={handleChange} placeholder="password..."/>
-          </div>
-          <div className="registration-form_item">
             <label className="registration-form_item_label" htmlFor="email">Email</label>
             <input className="registration-form_item_input" type="email" name="email" value={email} onChange={handleChange} placeholder="email..."/>
+          </div>
+          <div className="registration-form_item">
+            <label className="registration-form_item_label" htmlFor="password">Password</label>
+            <input className="registration-form_item_input" type="password" name="password" value={password} onChange={handleChange} placeholder="password..."/>
           </div>
           <button className="registration-form_item_button" type="submit">submit</button>
         </form>
