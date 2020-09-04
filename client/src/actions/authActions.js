@@ -19,7 +19,7 @@ export const loadUser = () => {
       dispatch({ type: USER_LOADING });
       const response = await axios.get('/api/auth/user', tokenConfig(getState));
       const data = await response.data;
-      
+
       dispatch({ type: USER_LOADED, payload: data });
     } catch (error) {
       dispatch(returnErrors(error.response.data, error.response.status));
@@ -33,8 +33,8 @@ export const register = ({ name, email, password }) => {
   return async dispatch => {
     try {
       // headers
-      const config = { 
-        headers: { "Content-type": "application/json" } 
+      const config = {
+        headers: { "Content-type": "application/json" }
       };
       // Request body
       const body = JSON.stringify({ name, email, password });
@@ -44,7 +44,7 @@ export const register = ({ name, email, password }) => {
 
       dispatch({ type: CLEAR_ERRORS });
       dispatch({ type: REGISTER_SUCCESS, payload: data });
-    
+
     } catch (error) {
       dispatch({ type: REGISTER_FAIL });
       dispatch(returnErrors(error.response.data, error.response.status, 'REGISTER_FAIL'));
@@ -57,8 +57,8 @@ export const login = ({ email, password }) => {
   return async dispatch => {
     try {
       // headers
-      const config = { 
-        headers: { "Content-type": "application/json" } 
+      const config = {
+        headers: { "Content-type": "application/json" }
       };
       // Request body
       const body = JSON.stringify({ email, password });
@@ -68,7 +68,7 @@ export const login = ({ email, password }) => {
 
       dispatch({ type: CLEAR_ERRORS });
       dispatch({ type: LOGIN_SUCCESS, payload: data });
-    
+
     } catch (error) {
       dispatch({ type: LOGIN_FAIL });
       dispatch(returnErrors(error.response.data, error.response.status, 'LOGIN_FAIL'));

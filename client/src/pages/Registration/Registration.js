@@ -63,8 +63,8 @@ const Registration = ({ error, isAuthenticated }) => {
       <div className="registration-form-wrapper">
         <form className="registration-form" onSubmit={handleSubmit}>
           <img src={avatar} alt="avatar"/>
-          <h2>Register</h2> 
-          {errorMsg ? 
+          <h2>Register</h2>
+          {errorMsg ?
             (<div className="errorMessage">
               <span className="errorMessage_close-button" onClick={handleCloseErrorMessage}>&times;</span>
               {errorMsg}
@@ -85,7 +85,7 @@ const Registration = ({ error, isAuthenticated }) => {
           </div>
           <button className="registration-form_item_button" type="submit">submit</button>
         </form>
-      </div> 
+      </div>
     </div>
   )
 };
