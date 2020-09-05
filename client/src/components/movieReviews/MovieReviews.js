@@ -42,7 +42,7 @@ const MovieReviews = ({ reviews, loading, error}) => {
             <img className="no-movie-review-container_image" src={noReviewsImage} alt="no reviews"></img>
           </div>
           <div className="no-movie-review-container_text-wrapper">
-          <p className="no-movie-review-container_text">Currently No reviews available.</p>
+          <p className="no-movie-review-container_text">Currently no reviews available.</p>
           </div>
         </div>
       }

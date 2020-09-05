@@ -5,7 +5,6 @@ import ActorHeader from '../../components/ActorHeader/ActorHeader';
 import ActorMovieCredits from '../../components/ActorMovieCredits/ActorMovieCredits';
 import Footer from '../../components/Footer/Footer';
 import Loader from '../../components/Loader/Loader';
-import BackButton from '../../components/BackButton/BackButton';
 
 import './actorDetails.scss';
 

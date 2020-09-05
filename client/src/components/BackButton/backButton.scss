@@ -1,8 +1,8 @@
 .back-button {
   border: none;
   background: transparent;
-}
-
-.back-arrow:hover {
-  fill:red;
+  &:focus {
+    border: none;
+    outline: none;
+  }
 }

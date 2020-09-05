@@ -34,3 +34,18 @@
     }
   }
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media all and (max-width: 600px) {
+  .actor-header-container {
+    flex-direction: column;
+    padding: 20px 0px;
+    .actor-header-image-wrapper {
+      width: 85%;
+    }
+    .actor-header-detals-wrapper {
+      padding-left: 0;
+      width: 90%
+    }
+  }
+}

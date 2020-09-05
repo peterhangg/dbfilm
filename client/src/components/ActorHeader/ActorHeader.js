@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 
 import BackButton from '../../components/BackButton/BackButton';
 import { fetchActorDetails } from '../../actions/getActorDetails';
+import ActorPlaceholder from "../../images/actor-placeholder.jpg";
+
 import './actorHeader.scss';
 
 const ActorHeader = ({ actorDetails, loading ,error }) => {
@@ -20,7 +22,7 @@ const ActorHeader = ({ actorDetails, loading ,error }) => {
   return (
     <div className="actor-header-container">
       <div className="actor-header-image-wrapper">
-        <img className="actor-header-image-wrapper_image" src={`https://image.tmdb.org/t/p/h632${actorDetails.profile_path}`} alt="actor-profile"/>
+        <img className="actor-header-image-wrapper_image" src={actorDetails.profile_path ? `https://image.tmdb.org/t/p/h632${actorDetails.profile_path}` : ActorPlaceholder } alt="actor-profile"/>
       </div>
       <div className="actor-header-detals-wrapper">
         <div className="actor-header-detals-wrapper_title-wrapper">
