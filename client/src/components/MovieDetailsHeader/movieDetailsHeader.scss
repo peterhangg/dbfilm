@@ -32,9 +32,15 @@
     .movie-header-info-wrapper {
       padding-left: 40px;
       width: 50%;
-
+    // .movie-header-info-wrapper_title-wrapper
+    &_title-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+      }
     // .movie-header-info-wrapper_title
     &_title {
+      display: inline-block;
       text-align: left;
       color: $secondary-font-color;
       font-size: 2em;

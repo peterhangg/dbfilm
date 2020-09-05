@@ -15,11 +15,17 @@
       border-radius: 10px;
     }
   }
-  .actor-header-detals-wrapper{
+  .actor-header-detals-wrapper {
     padding-left: 2rem;
     text-align: left;
     width: 50%;
-
+    &_title-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &_name {
+      display: inline-block;
+    }
     &_label {
       margin-bottom: 0;
     }

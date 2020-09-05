@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import BackButton from '../../components/BackButton/BackButton';
 import { fetchActorDetails } from '../../actions/getActorDetails';
-
 import './actorHeader.scss';
 
 const ActorHeader = ({ actorDetails, loading ,error }) => {
@@ -13,7 +13,7 @@ const ActorHeader = ({ actorDetails, loading ,error }) => {
   useEffect(() => {
     dispatch(fetchActorDetails(actorID));
   },[dispatch, actorID])
-  
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
 
@@ -23,7 +23,10 @@ const ActorHeader = ({ actorDetails, loading ,error }) => {
         <img className="actor-header-image-wrapper_image" src={`https://image.tmdb.org/t/p/h632${actorDetails.profile_path}`} alt="actor-profile"/>
       </div>
       <div className="actor-header-detals-wrapper">
-        <h1 className="actor-header-detals-wrapper_name">{actorDetails.name}</h1>
+        <div className="actor-header-detals-wrapper_title-wrapper">
+          <h1 className="actor-header-detals-wrapper_name">{actorDetails.name}</h1>
+          <BackButton />
+        </div>
         <h3 className="actor-header-detals-wrapper_label">Biography</h3>
         <p className="actor-header-detals-wrapper_biography">{actorDetails.biography}</p>
         <p className="actor-header-detals-wrapper_gender"><strong>Gender:</strong> {actorDetails.gender === 2 ? "Male" : "Female"}</p>

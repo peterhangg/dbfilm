@@ -7,6 +7,7 @@ import MovieDetailsHeader from '../../components/MovieDetailsHeader/MovieDetails
 import MovieReviews from '../../components/movieReviews/MovieReviews';
 import MovieRecommendations from '../../components/MovieRecommendations/MovieRecommendations';
 import Footer from '../../components/Footer/Footer';
+import Loader from '../../components/Loader/Loader';
 import './movieDetails.scss';
 
 const MovieInfo = () => {
@@ -19,6 +20,7 @@ const MovieInfo = () => {
 
   return (
     <div className="movie-info-container">
+      <Loader />
       <MovieDetailsHeader />
       <MovieCast />
       <MovieTrailer />
