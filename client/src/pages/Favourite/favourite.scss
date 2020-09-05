@@ -2,7 +2,10 @@
 
 .favourite-movies-container {
   background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('../../images/cinema-doodle.jpg');
-  padding-top: 7vh;
+  margin-top: 7vh;
+  min-height: 93vh;
+  display: flex;
+  flex-direction: column;
   .favourite-movie-wrapper {
     padding: 0 20px;
     display: grid;

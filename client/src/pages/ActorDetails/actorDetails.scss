@@ -2,6 +2,8 @@
 
 .actor-details-container {
   background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('../../images/cinema-doodle.jpg');
+  min-height: 93vh;
   display: flex;
   flex-direction: column;
+  margin-top: 7vh;
 }
