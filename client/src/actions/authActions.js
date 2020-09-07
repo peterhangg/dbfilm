@@ -17,7 +17,7 @@ export const loadUser = () => {
   return async (dispatch, getState) => {
     try {
       dispatch({ type: USER_LOADING });
-      const response = await axios.get('/api/auth/user', tokenConfig(getState));
+      const response = await axios.get('https://dbfilm-react.herokuapp.com/api/auth/user', tokenConfig(getState));
       const data = await response.data;
 
       dispatch({ type: USER_LOADED, payload: data });
@@ -39,7 +39,7 @@ export const register = ({ name, email, password }) => {
       // Request body
       const body = JSON.stringify({ name, email, password });
 
-      const response = await axios.post("/api/users", body, config);
+      const response = await axios.post("https://dbfilm-react.herokuapp.com/api/users", body, config);
       const data = await response.data;
 
       dispatch({ type: CLEAR_ERRORS });
@@ -63,7 +63,7 @@ export const login = ({ email, password }) => {
       // Request body
       const body = JSON.stringify({ email, password });
 
-      const response = await axios.post("/api/auth", body, config);
+      const response = await axios.post("https://dbfilm-react.herokuapp.com/api/auth", body, config);
       const data = await response.data;
 
       dispatch({ type: CLEAR_ERRORS });

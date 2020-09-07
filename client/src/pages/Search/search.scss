@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 
 .search-movie-container {
-  background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('../../images/cinema-doodle.jpg');
+  background-image: url('../../images/cinema-doodle.png');
   padding-top: 7vh;
   // search-movie-container_title
   &_title {
