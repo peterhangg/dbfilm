@@ -1,12 +1,12 @@
-const moongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 const connectMongoDB = async () => {
   try {
-    const connectDB = await moongoose.connect(process.env.MONGO_URI, {
+    const connectDB = await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
-      useFindAndModify: false 
+      useFindAndModify: false
     });
 
     console.log(`MongoDB connected: ${connectDB.connection.host}`.cyan.underline.bold)
@@ -16,4 +16,4 @@ const connectMongoDB = async () => {
   }
 };
 
-module.exports = connectMongoDB
+module.exports = connectMongoDB;

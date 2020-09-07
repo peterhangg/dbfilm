@@ -24,11 +24,12 @@ const Search = ({ searchResultMovies, searchMoviesLoading, searchMoviesError, co
     dispatch(fetchSearchMovies(searchInput, currentPage));
   },[currentPage, dispatch, searchInput]);
 
-  if (searchMoviesLoading) return <Loader />;
+  if (searchMoviesLoading) return <p>Loading...</p>;
   if (searchMoviesError) return <p>Unable to display movies.</p>;
 
   return (
     <div className="search-movie-container">
+      <Loader />
       <h2 className="search-movie-container_title">Results for: {searchInput}</h2>
       <div className="search-movie-wrapper">
         {searchResultMovies.results.length > 0 ? searchResultMovies.results.filter(movie => movie.poster_path).map(movie => (

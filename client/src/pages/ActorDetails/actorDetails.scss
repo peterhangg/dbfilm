@@ -1,1 +1,9 @@
 @import '../../styles/variables';
+
+.actor-details-container {
+  background-image: url('../../images/cinema-doodle.png');
+  min-height: 93vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 7vh;
+}

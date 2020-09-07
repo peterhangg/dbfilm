@@ -4,6 +4,7 @@ import { connect, useDispatch } from 'react-redux';
 import MovieList from '../../components/MovieList/MovieList';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import Loader from '../../components/Loader/Loader';
 
 import { store } from '../../store';
 import { loadUser } from '../../actions/authActions';
@@ -22,10 +23,7 @@ const Home = (props) => {
   useEffect(() => {
     console.log("USE EFFECT IN HOME COMPONENT");
     store.dispatch(loadUser());
-    // Added a small delay in fetch to display page loader
-    setTimeout(() => {
-      dispatch(fetchNowPlaying());
-    }, 250);
+    dispatch(fetchNowPlaying());
     dispatch(fetchConfig());
     dispatch(fetchPopularMovies());
     dispatch(fetchTopRatedMovies());
@@ -35,6 +33,7 @@ const Home = (props) => {
 
   return (
     <div className="home-container">
+      <Loader />
       <Header movies={props.nowPlayingMovies} loading={props.nowPlayingError} error={props.nowPlayingLoading}/>
       <MovieList label="Now Playing" movies={props.nowPlayingMovies} loading={props.nowPlayingError} error={props.nowPlayingLoading}/>
       <MovieList label="Popular" movies={props.popularMovies} loading={props.popularLoading} error={props.popularMoviesError}/>

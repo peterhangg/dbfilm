@@ -12,7 +12,6 @@
     .swiper-slide {
       text-align: center;
       transition: transform .3s;
-      opacity: 80%;
       // swiper-slide_title, swiper-slide_score
       &_title, &_score {
         color: black;

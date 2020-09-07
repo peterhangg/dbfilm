@@ -1,0 +1,8 @@
+.back-button {
+  border: none;
+  background: transparent;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}

@@ -15,16 +15,37 @@
       border-radius: 10px;
     }
   }
-  .actor-header-detals-wrapper{
+  .actor-header-detals-wrapper {
     padding-left: 2rem;
     text-align: left;
     width: 50%;
-
+    &_title-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &_name {
+      display: inline-block;
+    }
     &_label {
       margin-bottom: 0;
     }
     &_gender, &_birthday, &_place-of-birth, &_known-for {
       margin: 0;
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media all and (max-width: 600px) {
+  .actor-header-container {
+    flex-direction: column;
+    padding: 20px 0px;
+    .actor-header-image-wrapper {
+      width: 85%;
+    }
+    .actor-header-detals-wrapper {
+      padding-left: 0;
+      width: 90%
     }
   }
 }

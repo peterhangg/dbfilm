@@ -23,8 +23,8 @@ const Favourite = ({ favouriteMovies }) => {
       {favouriteMovies.length > 0 ? favouriteMovies.map((movie, index) => (
         <div className="favourite-movie" key={index}>
           <Link to={`/movie/${movie.id}`}>
-            <img 
-              className="favourite-movie_image" 
+            <img
+              className="favourite-movie_image"
               src={movie.poster_path ? `https://image.tmdb.org/t/p/w300${movie.poster_path}` : posterPlaceholder }
               alt={movie.title}
             />

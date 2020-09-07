@@ -7,6 +7,7 @@ import { fetchMovieCredits } from '../../actions/getMovieCredits';
 import { addToFavourites } from '../../actions/favouriteActions';
 import { deleteFavouriteMovie } from '../../actions/favouriteActions';
 
+import BackButton from '../../components/BackButton/BackButton';
 import filmPlaceholder from '../../images/film-placeholder.jpg';
 import Fav from '../../images/fav.svg';
 import unFav from '../../images/un-fav.svg';
@@ -31,7 +32,7 @@ const MovieDetails = ({ favouriteMovies, movieDetails, crew, loading, error, isA
   useEffect(() => {
     favMovieStatus();
     dispatch(fetchMovieDetails(id));
-    dispatch(fetchMovieCredits(id)); 
+    dispatch(fetchMovieCredits(id));
   }, [dispatch, id])
 
   if (loading) return <p>LOADING MOVIE DETAILS...</p>
@@ -57,7 +58,7 @@ const MovieDetails = ({ favouriteMovies, movieDetails, crew, loading, error, isA
   };
 
   const movieYear = movieDetails.release_date.split("-")[0];
-  
+
   const MovieRuntime = minute => {
     return `${Math.floor(minute/60)}h ${minute % 60}m`;
   };
@@ -65,12 +66,12 @@ const MovieDetails = ({ favouriteMovies, movieDetails, crew, loading, error, isA
   return (
     <div className="movie-header-container" style={headerStyle}>
       <div className="movie-header-poster-wrapper">
-        <img className="movie-header-poster-wrapper_image" 
+        <img className="movie-header-poster-wrapper_image"
           src={movieDetails.poster_path ? `https://image.tmdb.org/t/p/w300${movieDetails.poster_path}` : filmPlaceholder} alt={movieDetails.title}
         />
         {!favourite ? (
           <button className="movie-header-poster-wrapper_fav-button" onClick={handleFavourite}>
-            <img className="movie-header-poster-wrapper_fav-button-icon" src={unFav} alt="un-favourite"/> <span className="movie-header-poster-wrapper_fav-button-text">Add To Favourite</span>  
+            <img className="movie-header-poster-wrapper_fav-button-icon" src={unFav} alt="un-favourite"/> <span className="movie-header-poster-wrapper_fav-button-text">Add To Favourite</span>
           </button>
           ) : (
           <button className="movie-header-poster-wrapper_fav-button" onClick={handleFavourite}>
@@ -80,7 +81,10 @@ const MovieDetails = ({ favouriteMovies, movieDetails, crew, loading, error, isA
         }
       </div>
       <div className="movie-header-info-wrapper">
-        <h2 className="movie-header-info-wrapper_title">{movieDetails.title} <span>({movieYear})</span></h2>
+        <div className="movie-header-info-wrapper_title-wrapper">
+          <h2 className="movie-header-info-wrapper_title">{movieDetails.title} <span>({movieYear})</span></h2>
+          <BackButton />
+        </div>
         <div className="movie-header-info-wrapper-details">
           <h3 className="movie-header-info-wrapper-details_tagline">{movieDetails.tagline}</h3>
             <h2>Overview</h2>

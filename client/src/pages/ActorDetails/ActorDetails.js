@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import ActorHeader from '../../components/ActorHeader/ActorHeader';
 import ActorMovieCredits from '../../components/ActorMovieCredits/ActorMovieCredits';
 import Footer from '../../components/Footer/Footer';
+import Loader from '../../components/Loader/Loader';
 
 import './actorDetails.scss';
 
@@ -17,6 +18,7 @@ const ActorDetails = () => {
 
   return (
     <div className="actor-details-container">
+      <Loader />
       <ActorHeader />
       <ActorMovieCredits />
       <Footer />

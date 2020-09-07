@@ -54,8 +54,7 @@ const ActorMovieCredits = ({ actorMovieCredits, loading, error }) => {
   return (
     <div className="actor-movie-credits-container">
       <ScrollAnimation animateIn="fadeIn" animateOnce={true} duration={2}>
-        <h2
-        >Known for</h2>
+        <h2>Known for</h2>
         <Swiper {...params} key={actorMovieCredits.length}>
             {actorMovieCredits.map((movie, index) => (
               <div key={index} className="swiper-slide">

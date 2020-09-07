@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import Loader from '../../components/Loader/Loader';
 import './header.scss';
 
 import Swiper from 'react-id-swiper';
@@ -23,7 +22,7 @@ const Header = ({ movies, loading, error, config }) => {
     containerClass: 'header-swiper-container'
   };
 
-  if (loading) return <Loader />;
+  if (loading) return <p>Loading...</p>;
   if (error) return <p>Unable to display movies.</p>;
 
   const baseBackdropURL = `${config.images ? config.images.base_url : ''}${config.images ? config.images.backdrop_sizes[2] : ''}`
