@@ -1,13 +1,23 @@
 @import '../../styles/variables';
 
 .actor-header-container {
-  padding-top: 7vh;
+  margin-top: 5vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  &_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 12px 10px #777;
+  }
+
   .actor-header-image-wrapper {
-    margin-top: 3rem;
     // .actor-header-image-wrapper_image
     &_image {
       width: 300px;
@@ -38,14 +48,24 @@
 /* Extra small devices (phones, 600px and down) */
 @media all and (max-width: 600px) {
   .actor-header-container {
-    flex-direction: column;
-    padding: 20px 0px;
+    &_wrapper {
+      flex-direction: column;
+      padding: 20px 0px;
+    }
     .actor-header-image-wrapper {
       width: 85%;
     }
     .actor-header-detals-wrapper {
       padding-left: 0;
       width: 90%
+    }
+  }
+}
+
+@media all and (min-width: 1025px) {
+  .actor-header-container {
+    &_wrapper {
+      max-width: 70%;
     }
   }
 }
